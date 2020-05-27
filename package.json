@@ -1,6 +1,8 @@
 {
+  "name": "dom-helpers",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
+  "main": "src/index.js",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-watch": "^5.0.0",
