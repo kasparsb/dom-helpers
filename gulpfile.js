@@ -13,7 +13,7 @@ var pkg = require('./package.json');
 
 var files = {
     js: './src/index.js',
-    dest: './build'
+    dest: './dist'
 }
 
 /**
