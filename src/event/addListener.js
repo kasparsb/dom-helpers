@@ -1,5 +1,3 @@
-import parseArguments from './parseArguments';
-
 /**
  * Pievieno event listener
  * Iekšējai izmantošanai. Šeit vajag padot tieši šos parametrus
@@ -7,10 +5,10 @@ import parseArguments from './parseArguments';
  */
 function addListener(el, eventName, querySelector, cb, preventDefault) {
 
-    el.addEventListener(eventName, function(ev){
-
+    // Atgriežam event handler, lai to var remove
+    let eventHandler = function(ev) {
         let matchedEl = ev.target;
-        
+    
         if (querySelector) {
             while (matchedEl && (matchedEl !== el)) {
 
@@ -41,8 +39,11 @@ function addListener(el, eventName, querySelector, cb, preventDefault) {
                 cb(ev, matchedEl);
             }
         }
+    }
 
-    })
+    el.addEventListener(eventName, eventHandler);
+
+    return eventHandler;
 }
 
 export default addListener
