@@ -3,6 +3,7 @@ import replaceContent from './replaceContent';
 import setAttributes from './setAttributes';
 import getDimensions from './getDimensions';
 import removeClass from './removeClass';
+import getOffset from './getOffset';
 import addClass from './addClass';
 import hasClass from './hasClass';
 import parents from './parents';
@@ -40,6 +41,7 @@ export default {
     setAttributes,
     getDimensions,
     removeClass,
+    getOffset,
     addClass,
     hasClass,
     parents,
