@@ -11,6 +11,7 @@ import isChild from './isChild';
 import remove from './remove';
 import create from './create';
 import append from './append';
+import off from './event/off';
 import onp from './event/onp';
 import on from './event/on';
 import qa from './qa';
@@ -29,6 +30,7 @@ export {
     remove,
     create,
     append,
+    off,
     onp,
     on,
     qa,
@@ -49,6 +51,7 @@ export default {
     remove,
     create,
     append,
+    off,
     onp,
     on,
     qa,
