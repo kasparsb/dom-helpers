@@ -23,6 +23,7 @@ export {
     setAttributes,
     getDimensions,
     removeClass,
+    getOffset,
     addClass,
     hasClass,
     parents,
