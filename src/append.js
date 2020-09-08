@@ -1,11 +1,13 @@
 import isArray from './isArray';
-import q from './q';
+import re from './re';
 
+/**
+ * @param string|DOM node Selector or DOM node
+ */
 function append(el, childs) {
-    // Ja el ir query selector string
-    if (typeof el === 'string') {
-        el = q(el);
-    }
+
+    // Resolve element
+    el = re(el);
 
     if (!isArray(childs)) {
         childs = [childs];
@@ -14,7 +16,10 @@ function append(el, childs) {
     for (let child of childs) {
 
         if (isArray(child)) {
-            this.appendChilds(el, child);
+            /**
+             * @todo Te kaut kas nav pareizi
+             */
+            append(el, child);
         }
         else if (typeof child === 'string') {
             el.appendChild(document.createTextNode(child));

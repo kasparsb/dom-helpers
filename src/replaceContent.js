@@ -7,6 +7,12 @@ function replaceContent(p1, p2, p3) {
 
     let parentNode, querySelector, newChild;
 
+    /**
+     * @todo Šito vajag pārtaisīt, lai padot elementu bez parentNode
+     * Tagad sanāk, ka jāpadod elements un selector pēc, kura atlasīt
+     * elementus, kurus replace
+     */
+
     if (typeof p1 === 'string') {
         parentNode = document;
         querySelector = p1;

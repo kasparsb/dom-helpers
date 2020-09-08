@@ -1,15 +1,18 @@
 import getStyleValueAsInt from './getStyleValueAsInt';
+import re from './re';
 
 function getDimensions(el) {
-    var s = getComputedStyle(el);
+    el = re(el);
+
+    let s = getComputedStyle(el);
 
     // Noņemam border width
-    var borderHorizontal = getStyleValueAsInt(s, 'border-left-width') + getStyleValueAsInt(s, 'border-right-width');
-    var borderVertical = getStyleValueAsInt(s, 'border-top-width') + getStyleValueAsInt(s, 'border-bottom-width');
+    let borderHorizontal = getStyleValueAsInt(s, 'border-left-width') + getStyleValueAsInt(s, 'border-right-width');
+    let borderVertical = getStyleValueAsInt(s, 'border-top-width') + getStyleValueAsInt(s, 'border-bottom-width');
 
     // Noņemam padding width
-    var paddingHorizontal = getStyleValueAsInt(s, 'padding-left') + getStyleValueAsInt(s, 'padding-right');
-    var paddingVertical = getStyleValueAsInt(s, 'padding-top') + getStyleValueAsInt(s, 'padding-bottom');
+    let paddingHorizontal = getStyleValueAsInt(s, 'padding-left') + getStyleValueAsInt(s, 'padding-right');
+    let paddingVertical = getStyleValueAsInt(s, 'padding-top') + getStyleValueAsInt(s, 'padding-bottom');
 
     if (typeof el.getBoundingClientRect != 'undefined') {
         if (typeof el.getBoundingClientRect().width != 'undefined' && typeof el.getBoundingClientRect().height != 'undefined') {

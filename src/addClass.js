@@ -1,6 +1,9 @@
 import hasClass from './hasClass';
+import re from './re';
 
 function addClass(el, className) {
+    el = re(el);
+
     if (hasClass(el, className)) {
         return;
     }

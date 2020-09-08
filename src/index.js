@@ -18,6 +18,7 @@ import qa from './qa';
 import q from './q';
 import re from './re';
 import rea from './rea';
+import jsx from './jsx';
 
 export {
     getOuterDimensions,
@@ -39,7 +40,8 @@ export {
     qa,
     q,
     re,
-    rea
+    rea,
+    jsx
 }
 
 export default {
@@ -62,5 +64,6 @@ export default {
     qa,
     q,
     re,
-    rea
+    rea,
+    jsx
 }

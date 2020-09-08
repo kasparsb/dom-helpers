@@ -1,9 +1,13 @@
+import re from './re';
+
 function setAttributes(el, attributes) {
+    el = re(el);
+
     for (let [key, value] of Object.entries(attributes)) {
         if (key == 'className') {
             key = 'class';
         }
-        
+
         if (key.substr(0, 5) == 'data-') {
             el.dataset[key.substr(5)] = value;
         }
@@ -13,7 +17,7 @@ function setAttributes(el, attributes) {
             }
         }
         else {
-            el.setAttribute(key, value);    
+            el.setAttribute(key, value);
         }
     }
 }

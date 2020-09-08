@@ -1,15 +1,18 @@
 import getStyleValueAsInt from './getStyleValueAsInt';
+import re from './re';
 
 function getOuterDimensions(el, includeMargin) {
+    el = re(el);
+
     includeMargin = typeof includeMargin == 'undefined' ? false : includeMargin;
 
-    var s = getComputedStyle(el);
+    let s = getComputedStyle(el);
 
-    var marginHorizontal = 0;
-    var marginVertical = 0;
+    let marginHorizontal = 0;
+    let marginVertical = 0;
     if (includeMargin) {
         marginHorizontal = getStyleValueAsInt(s, 'margin-left') + getStyleValueAsInt(s, 'margin-right');
-        marginVertical = getStyleValueAsInt(s, 'margin-top') + getStyleValueAsInt(s, 'margin-bottom');    
+        marginVertical = getStyleValueAsInt(s, 'margin-top') + getStyleValueAsInt(s, 'margin-bottom');
     }
 
     if (typeof el.getBoundingClientRect != 'undefined') {
