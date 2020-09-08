@@ -14,6 +14,8 @@ import append from './append';
 import off from './event/off';
 import onp from './event/onp';
 import on from './event/on';
+import click from './event/click';
+import clickp from './event/clickp';
 import qa from './qa';
 import q from './q';
 import re from './re';
@@ -37,6 +39,8 @@ export {
     off,
     onp,
     on,
+    click,
+    clickp,
     qa,
     q,
     re,
@@ -61,6 +65,8 @@ export default {
     off,
     onp,
     on,
+    click,
+    clickp,
     qa,
     q,
     re,
