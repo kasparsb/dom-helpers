@@ -16,6 +16,8 @@ import onp from './event/onp';
 import on from './event/on';
 import qa from './qa';
 import q from './q';
+import re from './re';
+import rea from './rea';
 
 export {
     getOuterDimensions,
@@ -35,7 +37,9 @@ export {
     onp,
     on,
     qa,
-    q
+    q,
+    re,
+    rea
 }
 
 export default {
@@ -56,5 +60,7 @@ export default {
     onp,
     on,
     qa,
-    q
+    q,
+    re,
+    rea
 }
