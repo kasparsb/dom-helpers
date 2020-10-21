@@ -24,6 +24,8 @@ import click from './event/click';
 import clickp from './event/clickp';
 import submit from './event/submit';
 import submitp from './event/submitp';
+import change from './event/change';
+import changep from './event/changep';
 
 export {
     getOuterDimensions,
@@ -46,6 +48,8 @@ export {
     clickp,
     submit,
     submitp,
+    change,
+    changep
     qa,
     q,
     re,
@@ -74,6 +78,8 @@ export default {
     clickp,
     submit,
     submitp,
+    change,
+    changep,
     qa,
     q,
     re,
