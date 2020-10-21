@@ -1,5 +1,3 @@
-function getStyleValueAsInt(style, name) {
+export default function(style, name) {
     return parseInt(style.getPropertyValue(name), 10);
 }
-
-export default getStyleValueAsInt

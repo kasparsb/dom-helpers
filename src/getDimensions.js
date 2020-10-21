@@ -1,7 +1,7 @@
 import getStyleValueAsInt from './getStyleValueAsInt';
 import re from './re';
 
-function getDimensions(el) {
+export default function(el) {
     el = re(el);
 
     let s = getComputedStyle(el);
@@ -28,5 +28,3 @@ function getDimensions(el) {
         height: el.offsetHeight - borderVertical - paddingVertical
     }
 }
-
-export default getDimensions;

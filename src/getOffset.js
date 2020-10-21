@@ -1,6 +1,6 @@
 import re from './re';
 
-function getOffset(el) {
+export default function(el) {
     el = re(el);
 
     let rect = el.getBoundingClientRect();
@@ -12,5 +12,3 @@ function getOffset(el) {
         left: rect.left + scrollLeft
     }
 }
-
-export default getOffset

@@ -6,7 +6,7 @@ import q from './q';
  * find element matching selector using document.querySelector function
  * Otherwise return el
  */
-function re(el) {
+export default function(el) {
 
     if (typeof el === 'string') {
         return q(el);
@@ -14,5 +14,3 @@ function re(el) {
 
     return el;
 }
-
-export default re

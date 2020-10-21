@@ -1,7 +1,7 @@
 /**
  * querySelectorAll
  */
-function qa(p1, p2) {
+export default function(p1, p2) {
 
     let parentNode, querySelector;
 
@@ -16,5 +16,3 @@ function qa(p1, p2) {
 
     return parentNode.querySelectorAll(querySelector);
 }
-
-export default qa

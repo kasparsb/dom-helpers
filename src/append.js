@@ -4,7 +4,7 @@ import re from './re';
 /**
  * @param string|DOM node Selector or DOM node
  */
-function append(el, childs) {
+export default function(el, childs) {
 
     // Resolve element
     el = re(el);
@@ -36,5 +36,3 @@ function append(el, childs) {
     }
     return el
 }
-
-export default append

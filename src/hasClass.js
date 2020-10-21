@@ -1,6 +1,6 @@
 import re from './re';
 
-function hasClass(el, className) {
+export default function(el, className) {
     el = re(el);
 
     if (typeof el.classList != 'undefined') {
@@ -10,5 +10,3 @@ function hasClass(el, className) {
         return el.className.match(new RegExp('(?:^|\\s)'+className+'(?!\\S)', 'ig')) ? true : false;
     }
 }
-
-export default hasClass;

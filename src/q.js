@@ -1,7 +1,7 @@
 /**
  * querySelector
  */
-function q(p1, p2) {
+export default function(p1, p2) {
 
     let parentNode, querySelector;
 
@@ -16,5 +16,3 @@ function q(p1, p2) {
 
     return parentNode.querySelector(querySelector);
 }
-
-export default q

@@ -1,4 +1,4 @@
-function isChild(target, element) {
+export default function(target, element) {
     let n = target.parentNode;
 
     while (n) {
@@ -9,5 +9,3 @@ function isChild(target, element) {
     }
     return false;
 }
-
-export default isChild

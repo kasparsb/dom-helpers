@@ -1,6 +1,6 @@
 import re from './re';
 
-function removeClass(el, className) {
+export default function(el, className) {
     el = re(el);
 
     if (typeof el.classList != 'undefined') {
@@ -10,5 +10,3 @@ function removeClass(el, className) {
         el.className = el.className.replace(new RegExp('(?:^|\\s)'+className+'(?!\\S)', 'ig'), '');
     }
 }
-
-export default removeClass

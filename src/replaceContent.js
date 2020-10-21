@@ -3,7 +3,7 @@ import q from './q';
 /**
  * replace element childs with new dom element
  */
-function replaceContent(p1, p2, p3) {
+export default function(p1, p2, p3) {
 
     let parentNode, querySelector, newChild;
 
@@ -31,5 +31,3 @@ function replaceContent(p1, p2, p3) {
         el.appendChild(newChild)
     }
 }
-
-export default replaceContent

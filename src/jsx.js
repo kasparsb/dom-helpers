@@ -5,7 +5,7 @@ import append from './append';
  * Helpers for using jsx syntax to create dom elements
  * use babel pragma to set custom handler for creating dom elements
  */
-let jsx = {
+export default {
     Fragment: 'fragment',
 
     h: function (elementName, attributes, ...childs) {
@@ -32,5 +32,3 @@ let jsx = {
         return el;
     }
 }
-
-export default jsx

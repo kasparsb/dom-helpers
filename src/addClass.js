@@ -1,7 +1,7 @@
 import hasClass from './hasClass';
 import re from './re';
 
-function addClass(el, className) {
+export default function(el, className) {
     el = re(el);
 
     if (hasClass(el, className)) {
@@ -15,5 +15,3 @@ function addClass(el, className) {
         el.className += ' '+className;
     }
 }
-
-export default addClass

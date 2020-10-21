@@ -1,10 +1,8 @@
 /**
  * Remove dom element
  */
-function remove(el) {
+export default function(el) {
     if (el.parentNode) {
         el.parentNode.removeChild(el);
     }
 }
-
-export default remove;

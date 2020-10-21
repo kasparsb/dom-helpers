@@ -1,7 +1,7 @@
 import setAttributes from './setAttributes';
 import append from './append';
 
-function create(elementName, attributes, ...childs) {
+export default function(elementName, attributes, ...childs) {
     let el = document.createElement(elementName);
 
     if (attributes) {
@@ -12,5 +12,3 @@ function create(elementName, attributes, ...childs) {
 
     return el;
 }
-
-export default create

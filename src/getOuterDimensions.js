@@ -1,7 +1,7 @@
 import getStyleValueAsInt from './getStyleValueAsInt';
 import re from './re';
 
-function getOuterDimensions(el, includeMargin) {
+export default function(el, includeMargin) {
     el = re(el);
 
     includeMargin = typeof includeMargin == 'undefined' ? false : includeMargin;
@@ -35,5 +35,3 @@ function getOuterDimensions(el, includeMargin) {
         marginV: marginVertical
     }
 }
-
-export default getOuterDimensions;

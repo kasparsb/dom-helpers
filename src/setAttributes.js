@@ -1,6 +1,6 @@
 import re from './re';
 
-function setAttributes(el, attributes) {
+export default function(el, attributes) {
     el = re(el);
 
     for (let [key, value] of Object.entries(attributes)) {
@@ -21,5 +21,3 @@ function setAttributes(el, attributes) {
         }
     }
 }
-
-export default setAttributes
