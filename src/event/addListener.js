@@ -1,14 +1,16 @@
 /**
- * Pievieno event listener
- * Iekšējai izmantošanai. Šeit vajag padot tieši šos parametrus
- * Atšķirībā no on un onp funkcijā, kurām var mainīties padoto argumentu secība
+ * Pievieno event listener.
+ * Iekšējai izmantošanai
+ * @param args event funkcijas argument (el, eventName, querySelector, cb)
  */
-function addListener(el, eventName, querySelector, cb, preventDefault) {
+function addListener(args, preventDefault) {
+
+    let {el, eventName, querySelector, cb} = args;
 
     // Atgriežam event handler, lai to var remove
     let eventHandler = function(ev) {
         let matchedEl = ev.target;
-    
+
         if (querySelector) {
             while (matchedEl && (matchedEl !== el)) {
 
@@ -22,7 +24,7 @@ function addListener(el, eventName, querySelector, cb, preventDefault) {
                     if (cb) {
                         cb(ev, matchedEl);
                     }
-                    
+
                     return;
                 }
 
