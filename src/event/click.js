@@ -1,8 +1,6 @@
 import parseArguments from './parseArguments';
 import addListener from './addListener';
 
-function click() {
+export default function() {
     return addListener(parseArguments(arguments, 'click'), false);
 }
-
-export default click

@@ -31,7 +31,7 @@ function afunction(args, index) {
  * 2.4 click(function(){})
  */
 
-function parseArguments(args, definedEventName) {
+export default function (args, definedEventName) {
     let r = {
         el: undefined,
         eventName: undefined,
@@ -82,5 +82,3 @@ function parseArguments(args, definedEventName) {
 
     return r;
 }
-
-export default parseArguments

@@ -1,8 +1,6 @@
 import parseArguments from './parseArguments';
 import addListener from './addListener';
 
-function onp() {
+export default function() {
     return addListener(parseArguments(arguments), true)
 }
-
-export default onp

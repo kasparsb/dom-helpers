@@ -1,10 +1,8 @@
 import parseArguments from './parseArguments';
 import removeListener from './removeListener';
 
-function off() {
+export default function() {
     let {el, eventName, querySelector, cb} = parseArguments(arguments)
 
     removeListener(el, eventName, cb);
 }
-
-export default off

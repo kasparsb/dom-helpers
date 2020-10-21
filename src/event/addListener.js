@@ -3,7 +3,7 @@
  * Iekšējai izmantošanai
  * @param args event funkcijas argument (el, eventName, querySelector, cb)
  */
-function addListener(args, preventDefault) {
+export default function(args, preventDefault) {
 
     let {el, eventName, querySelector, cb} = args;
 
@@ -47,5 +47,3 @@ function addListener(args, preventDefault) {
 
     return eventHandler;
 }
-
-export default addListener

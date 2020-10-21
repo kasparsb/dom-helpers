@@ -1,5 +1,3 @@
-function removeListener(el, eventName, eventHandler) {
+export default function(el, eventName, eventHandler) {
     el.removeEventListener(eventName, eventHandler);
 }
-
-export default removeListener

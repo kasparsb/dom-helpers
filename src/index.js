@@ -11,16 +11,17 @@ import isChild from './isChild';
 import remove from './remove';
 import create from './create';
 import append from './append';
-import off from './event/off';
-import onp from './event/onp';
-import on from './event/on';
-import click from './event/click';
-import clickp from './event/clickp';
 import qa from './qa';
 import q from './q';
 import re from './re';
 import rea from './rea';
 import jsx from './jsx';
+
+import off from './event/off';
+import onp from './event/onp';
+import on from './event/on';
+import click from './event/click';
+import clickp from './event/clickp';
 
 export {
     getOuterDimensions,
