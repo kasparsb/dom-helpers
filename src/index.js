@@ -49,7 +49,7 @@ export {
     submit,
     submitp,
     change,
-    changep
+    changep,
     qa,
     q,
     re,
