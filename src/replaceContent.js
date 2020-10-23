@@ -1,33 +1,38 @@
 import q from './q';
+import append from './append';
 
 /**
  * replace element childs with new dom element
+ * Signatures
+ * replaceContent(domNode, selector, newContent)
+ * replaceContent(domNode, newContent)
+ * replaceContent(selector, newContent)
  */
-export default function(p1, p2, p3) {
+export default function(a1, a2, a3) {
 
-    let parentNode, querySelector, newChild;
+    let el, newContent;
 
-    /**
-     * @todo Šito vajag pārtaisīt, lai padot elementu bez parentNode
-     * Tagad sanāk, ka jāpadod elements un selector pēc, kura atlasīt
-     * elementus, kurus replace
-     */
+    // First element is querySelector
+    if (typeof a1 === 'string') {
+        newContent = a2;
 
-    if (typeof p1 === 'string') {
-        parentNode = document;
-        querySelector = p1;
-        newChild = p2;
+        el = q(document, a1);
     }
+    // First element is domNode
     else {
-        parentNode = p1;
-        querySelector = p2;
-        newChild = p3;
-    }
+        // Second is string and third argument is defined
+        if (typeof a2 === 'string' && typeof a3 != 'undefined') {
+            newContent = a3;
 
-    let el = parentNode.querySelector(querySelector);
+            el = q(a1, a2);
+        }
+        // Second argument is newContent
+        else {
+            el = a1;
+            newContent = a2;
+        }
+    }
 
     el.innerHTML = '';
-    if (newChild) {
-        el.appendChild(newChild)
-    }
+    append(el, newContent);
 }
