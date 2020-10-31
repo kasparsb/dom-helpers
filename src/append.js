@@ -1,6 +1,10 @@
 import isArray from './isArray';
 import re from './re';
 
+function isEmpty(v) {
+    return typeof child === 'undefined' || child === null
+}
+
 /**
  * @param string|DOM node Selector or DOM node
  */
@@ -21,9 +25,10 @@ function append(el, childs) {
         else if (
             typeof child === 'string'
             || typeof child === 'number'
+            || typeof child === 'undefined'
             || child === null
         ) {
-            el.appendChild(document.createTextNode(child === null ? '' : child));
+            el.appendChild(document.createTextNode(isEmpty(child) ? '' : child));
         }
         else {
             el.appendChild(child);
