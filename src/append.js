@@ -2,7 +2,7 @@ import isArray from './isArray';
 import re from './re';
 
 function isEmpty(v) {
-    return typeof child === 'undefined' || child === null
+    return typeof v === 'undefined' || v === null
 }
 
 /**
