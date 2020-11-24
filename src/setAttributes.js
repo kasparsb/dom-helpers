@@ -1,4 +1,5 @@
 import re from './re';
+import isEmpty from './isEmpty';
 
 export default function(el, attributes) {
     el = re(el);
@@ -22,7 +23,7 @@ export default function(el, attributes) {
             el.checked = value ? true : false;
         }
         else {
-            el.setAttribute(key, value);
+            el.setAttribute(key, isEmpty(value) ? '' : value);
         }
     }
 }

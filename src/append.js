@@ -1,9 +1,6 @@
 import isArray from './isArray';
 import re from './re';
-
-function isEmpty(v) {
-    return typeof v === 'undefined' || v === null
-}
+import isEmpty from './isEmpty';
 
 /**
  * @param string|DOM node Selector or DOM node
