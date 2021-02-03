@@ -5,10 +5,7 @@
  *
  * Element.prototype.matches = Element.prototype.msMatchesSelector;
  */
-let matchesMethodName = 'matches';
-if (typeof Element.prototype.msMatchesSelector != 'undefined') {
-    matchesMethodName = 'msMatchesSelector';
-}
+import matchesMethodName from '../other/matchesMethodName';
 
 /**
  * Pievieno event listener.
