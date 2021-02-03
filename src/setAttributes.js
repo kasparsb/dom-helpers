@@ -5,8 +5,15 @@ export default function(el, attributes) {
     el = re(el);
 
     let tagName = el.tagName.toUpperCase();
+    let value;
 
-    for (let [key, value] of Object.entries(attributes)) {
+    for (let key in attributes) {
+        if (!attributes.hasOwnProperty(key)) {
+            continue;
+        }
+
+        value = attributes[key];
+
         if (key == 'className') {
             key = 'class';
         }
@@ -15,8 +22,8 @@ export default function(el, attributes) {
             el.dataset[key.substr(5)] = value;
         }
         else if (key == 'style') {
-            for (let [k, v] of Object.entries(value)) {
-                el.style[k] = v;
+            for (let k in value) {
+                el.style[k] = value[k];
             }
         }
         else if (key == 'checked' && tagName == 'INPUT') {

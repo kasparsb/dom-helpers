@@ -1,10 +1,21 @@
 /**
+ * Store global matches method name
+ * Internet explorer 11 uses msMatchesSelector
+ * Modern browsers - matches
+ *
+ * Element.prototype.matches = Element.prototype.msMatchesSelector;
+ */
+let matchesMethodName = 'matches';
+if (typeof Element.prototype.msMatchesSelector != 'undefined') {
+    matchesMethodName = 'msMatchesSelector';
+}
+
+/**
  * Pievieno event listener.
  * Iekšējai izmantošanai
  * @param args event funkcijas argument (el, eventName, querySelector, cb)
  */
 export default function(args, preventDefault) {
-
     let {el, eventName, querySelector, cb} = args;
 
     // Atgriežam event handler, lai to var remove
@@ -14,7 +25,7 @@ export default function(args, preventDefault) {
         if (querySelector) {
             while (matchedEl && (matchedEl !== el)) {
 
-                if (matchedEl.matches(querySelector)) {
+                if (matchedEl[matchesMethodName](querySelector)) {
 
                     // Auto Prevent event
                     if (preventDefault) {
