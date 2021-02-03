@@ -4,6 +4,7 @@ import setAttributes from './setAttributes';
 import getDimensions from './getDimensions';
 import removeClass from './removeClass';
 import getOffset from './getOffset';
+import toggleClass from './toggleClass';
 import addClass from './addClass';
 import hasClass from './hasClass';
 import parents from './parents';
@@ -34,6 +35,7 @@ export {
     getDimensions,
     removeClass,
     getOffset,
+    toggleClass,
     addClass,
     hasClass,
     parents,
@@ -64,6 +66,7 @@ export default {
     getDimensions,
     removeClass,
     getOffset,
+    toggleClass,
     addClass,
     hasClass,
     parents,
