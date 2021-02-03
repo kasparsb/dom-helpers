@@ -4,6 +4,7 @@ import setAttributes from './setAttributes';
 import getDimensions from './getDimensions';
 import removeClass from './removeClass';
 import getOffset from './getOffset';
+import nodeIndex from './nodeIndex';
 import toggleClass from './toggleClass';
 import addClass from './addClass';
 import hasClass from './hasClass';
@@ -35,6 +36,7 @@ export {
     getDimensions,
     removeClass,
     getOffset,
+    nodeIndex,
     toggleClass,
     addClass,
     hasClass,
@@ -66,6 +68,7 @@ export default {
     getDimensions,
     removeClass,
     getOffset,
+    nodeIndex,
     toggleClass,
     addClass,
     hasClass,
