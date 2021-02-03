@@ -1,10 +1,3 @@
-/**
- * Store global matches method name
- * Internet explorer 11 uses msMatchesSelector
- * Modern browsers - matches
- *
- * Element.prototype.matches = Element.prototype.msMatchesSelector;
- */
 import matchesMethodName from '../other/matchesMethodName';
 
 /**

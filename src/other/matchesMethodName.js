@@ -1,5 +1,5 @@
 /**
- * Store global matches method name
+ * Store matches method name
  * Internet explorer 11 uses msMatchesSelector
  * Modern browsers - matches
  *
