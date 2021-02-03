@@ -1,3 +1,4 @@
+import rea from './rea';
 import hasClass from './hasClass';
 import addClass from './addClass';
 import removeClass from './removeClass';
@@ -5,27 +6,24 @@ import removeClass from './removeClass';
 /**
  * @param addOrRemove boolean|undefined. If true, than addClass. If false - removeClass
  */
-export default function(el, className, addOrRemove) {
-    if (typeof addOrRemove != 'undefined') {
-        // Add className if there is no this className already added
-        if (addOrRemove && !hasClass(el, className)) {
-            addClass(el, className)
-        }
-        // Remove class
-        else if (!addOrRemove) {
-            removeClass(el, className);
-        }
-    }
-    else {
-        // Toggle
-        if (hasClass(el, className)) {
-            removeClass(el, className);
+export default function(els, className, addOrRemove) {
+    rea(els).forEach(el => {
+        if (typeof addOrRemove != 'undefined') {
+            if (addOrRemove) {
+                addClass(el, className)
+            }
+            else {
+                removeClass(el, className);
+            }
         }
         else {
-            addClass(el, className);
+            // Toggle
+            if (hasClass(el, className)) {
+                removeClass(el, className);
+            }
+            else {
+                addClass(el, className);
+            }
         }
-    }
-
-
-    return el;
+    })
 }
