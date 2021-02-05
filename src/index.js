@@ -33,6 +33,7 @@ import submit from './event/submit';
 import submitp from './event/submitp';
 import change from './event/change';
 import changep from './event/changep';
+import target from './event/target';
 
 export {
     getOuterDimensions,
@@ -64,6 +65,7 @@ export {
     submitp,
     change,
     changep,
+    target,
     qa,
     q,
     re,
@@ -101,6 +103,7 @@ export default {
     submitp,
     change,
     changep,
+    target,
     qa,
     q,
     re,
