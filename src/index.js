@@ -1,4 +1,7 @@
 import getOuterDimensions from './getOuterDimensions';
+import getWindowDimensions from './getWindowDimensions';
+import getWindowScrollTop from './getWindowScrollTop';
+import setWindowScrollTop from './setWindowScrollTop';
 import replaceContent from './replaceContent';
 import setAttributes from './setAttributes';
 import getDimensions from './getDimensions';
@@ -8,6 +11,8 @@ import nodeIndex from './nodeIndex';
 import toggleClass from './toggleClass';
 import addClass from './addClass';
 import hasClass from './hasClass';
+import addStyle from './addStyle';
+import getStyle from './getStyle';
 import parents from './parents';
 import isChild from './isChild';
 import remove from './remove';
@@ -31,6 +36,9 @@ import changep from './event/changep';
 
 export {
     getOuterDimensions,
+    getWindowDimensions,
+    getWindowScrollTop,
+    setWindowScrollTop,
     replaceContent,
     setAttributes,
     getDimensions,
@@ -40,6 +48,8 @@ export {
     toggleClass,
     addClass,
     hasClass,
+    addStyle,
+    getStyle,
     parents,
     isChild,
     remove,
@@ -63,6 +73,9 @@ export {
 
 export default {
     getOuterDimensions,
+    getWindowDimensions,
+    getWindowScrollTop,
+    setWindowScrollTop,
     replaceContent,
     setAttributes,
     getDimensions,
@@ -72,6 +85,8 @@ export default {
     toggleClass,
     addClass,
     hasClass,
+    addStyle,
+    getStyle,
     parents,
     isChild,
     remove,
