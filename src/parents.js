@@ -5,7 +5,8 @@ import matchesMethodName from './other/matchesMethodName';
  * or return el if it matches querySelector
  */
 export default function(el, querySelector) {
-    while (el) {
+    // Also check if elements has "method" matches. nodeType=9 (Node.DOCUMENT_NODE) does not have matches method
+    while (el && el[matchesMethodName]) {
 
         if (el[matchesMethodName](querySelector)) {
             return el;
