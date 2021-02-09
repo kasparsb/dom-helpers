@@ -13,7 +13,7 @@ import addClass from './addClass';
 import hasClass from './hasClass';
 import addStyle from './addStyle';
 import getStyle from './getStyle';
-import parents from './parents';
+import parent from './parent';
 import isChild from './isChild';
 import remove from './remove';
 import create from './create';
@@ -51,7 +51,7 @@ export {
     hasClass,
     addStyle,
     getStyle,
-    parents,
+    parent,
     isChild,
     remove,
     create,
@@ -89,7 +89,7 @@ export default {
     hasClass,
     addStyle,
     getStyle,
-    parents,
+    parent,
     isChild,
     remove,
     create,
