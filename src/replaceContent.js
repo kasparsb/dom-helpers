@@ -34,5 +34,5 @@ export default function(a1, a2, a3) {
     }
 
     el.innerHTML = '';
-    append(el, newContent);
+    return append(el, newContent);
 }

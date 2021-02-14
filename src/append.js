@@ -10,28 +10,26 @@ function append(el, childs) {
     // Resolve element
     el = re(el);
 
-    if (!isArray(childs)) {
-        childs = [childs];
-    }
+    let items = !isArray(childs) ? [childs] : childs;
+    for (let item of items) {
 
-    for (let child of childs) {
-
-        if (isArray(child)) {
-            append(el, child);
+        if (isArray(item)) {
+            append(el, item);
         }
         else if (
-            typeof child === 'string'
-            || typeof child === 'number'
-            || typeof child === 'undefined'
-            || child === null
+            typeof item === 'string'
+            || typeof item === 'number'
+            || typeof item === 'undefined'
+            || item === null
         ) {
-            el.appendChild(document.createTextNode(isEmpty(child) ? '' : child));
+            el.appendChild(document.createTextNode(isEmpty(item) ? '' : item));
         }
         else {
-            el.appendChild(child);
+            el.appendChild(item);
         }
     }
-    return el
+
+    return childs
 }
 
 export default append
