@@ -18,6 +18,7 @@ import isChild from './isChild';
 import remove from './remove';
 import create from './create';
 import append from './append';
+import findSelectOption from './findSelectOption';
 import qa from './qa';
 import q from './q';
 import re from './re';
@@ -56,6 +57,7 @@ export {
     remove,
     create,
     append,
+    findSelectOption,
     off,
     onp,
     on,
@@ -94,6 +96,7 @@ export default {
     remove,
     create,
     append,
+    findSelectOption,
     off,
     onp,
     on,
