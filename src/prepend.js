@@ -22,16 +22,19 @@ export default function(parent, childs) {
         if (isArray(item)) {
             prepend(parent, item);
         }
-        else if (isTextContent(item)) {
-            item = document.createTextNode(isEmpty(item) ? '' : item);
+        else {
+            if (isTextContent(item)) {
+                item = document.createTextNode(isEmpty(item) ? '' : item);
+            }
+
+            if (firstNode) {
+                firstNode = parent.insertBefore(item, firstNode)
+            }
+            else {
+                firstNode = parent.appendChild(item)
+            }
         }
 
-        if (firstNode) {
-            firstNode = parent.insertBefore(item, firstNode)
-        }
-        else {
-            firstNode = parent.appendChild(item)
-        }
     }
 
     return childs
