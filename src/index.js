@@ -3,6 +3,7 @@ import getWindowDimensions from './getWindowDimensions';
 import getWindowScrollTop from './getWindowScrollTop';
 import setWindowScrollTop from './setWindowScrollTop';
 import replaceContent from './replaceContent';
+import replace from './replace';
 import setAttributes from './setAttributes';
 import getDimensions from './getDimensions';
 import removeClass from './removeClass';
@@ -43,6 +44,7 @@ export {
     getWindowScrollTop,
     setWindowScrollTop,
     replaceContent,
+    replace,
     setAttributes,
     getDimensions,
     removeClass,
@@ -83,6 +85,7 @@ export default {
     getWindowScrollTop,
     setWindowScrollTop,
     replaceContent,
+    replace,
     setAttributes,
     getDimensions,
     removeClass,
