@@ -1,6 +1,8 @@
 import re from './re';
 import mn from './mn';
 import parent from './parent';
+import next from './next';
+import append from './append';
 import isArray from './isArray';
 
 /**
@@ -15,9 +17,17 @@ export default function(el, nodes) {
 
     let items = isArray(nodes) ? nodes : [nodes];
 
-    // Liekam backward secībā, lai būt ielikti tādā pašā secībā kā padoti
+    let nextEl = next(el);
+
     for (let i = items.length-1; i >= 0; i--) {
-        el = parentEl.insertBefore(mn(items[i]), el)
+
+        // Atrodam nākošo node, lai varētu uztaisīt insertBefore
+        if (nextEl) {
+            el = parentEl.insertBefore(mn(items[i]), nextEl)
+        }
+        else {
+            el = append(parentEl, mn(items[i]));
+        }
     }
 
     return nodes

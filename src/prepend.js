@@ -1,7 +1,6 @@
 import re from './re';
+import mn from './mn';
 import isArray from './isArray';
-import isEmpty from './isEmpty';
-import isTextContent from './isTextContent';
 
 /**
  * @param string|DOM node Selector or DOM node
@@ -16,25 +15,13 @@ export default function(parent, childs) {
     let items = isArray(childs) ? childs : [childs];
 
     // Liekam backward secībā, lai parentā būt ielikti tādā pašā secībā kā padoti
-    for (let i = items.length; i >= 0; i--) {
-        let item = items[i];
-
-        if (isArray(item)) {
-            prepend(parent, item);
+    for (let i = items.length-1; i >= 0; i--) {
+        if (firstNode) {
+            firstNode = parent.insertBefore(mn(items[i]), firstNode)
         }
         else {
-            if (isTextContent(item)) {
-                item = document.createTextNode(isEmpty(item) ? '' : item);
-            }
-
-            if (firstNode) {
-                firstNode = parent.insertBefore(item, firstNode)
-            }
-            else {
-                firstNode = parent.appendChild(item)
-            }
+            firstNode = parent.appendChild(mn(items[i]))
         }
-
     }
 
     return childs

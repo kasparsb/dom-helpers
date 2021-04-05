@@ -21,12 +21,14 @@ import create from './create';
 import append from './append';
 import prepend from './prepend';
 import insertBefore from './insertBefore';
+import insertAfter from './insertAfter';
 import clone from './clone';
 import findSelectOption from './findSelectOption';
 import qa from './qa';
 import q from './q';
 import re from './re';
 import rea from './rea';
+import mn from './mn';
 import jsx from './jsx';
 
 import off from './event/off';
@@ -64,6 +66,7 @@ export {
     append,
     prepend,
     insertBefore,
+    insertAfter,
     clone,
     findSelectOption,
     off,
@@ -80,6 +83,7 @@ export {
     q,
     re,
     rea,
+    mn,
     jsx
 }
 
@@ -107,6 +111,7 @@ export default {
     append,
     prepend,
     insertBefore,
+    insertAfter,
     clone,
     findSelectOption,
     off,
@@ -123,5 +128,6 @@ export default {
     q,
     re,
     rea,
+    mn,
     jsx
 }
