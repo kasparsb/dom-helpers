@@ -20,6 +20,8 @@ import remove from './remove';
 import create from './create';
 import append from './append';
 import prepend from './prepend';
+import insertBefore from './insertBefore';
+import clone from './clone';
 import findSelectOption from './findSelectOption';
 import qa from './qa';
 import q from './q';
@@ -61,6 +63,8 @@ export {
     create,
     append,
     prepend,
+    insertBefore,
+    clone,
     findSelectOption,
     off,
     onp,
@@ -102,6 +106,8 @@ export default {
     create,
     append,
     prepend,
+    insertBefore,
+    clone,
     findSelectOption,
     off,
     onp,
