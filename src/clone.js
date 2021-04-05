@@ -1,9 +1,15 @@
 import re from './re';
 
-export default function(el) {
+export default function(el, afterCb) {
     // Resolve element
     el = re(el);
-    console.log(el);
 
-    return el.cloneNode(true)
+    let r = el.cloneNode(true);
+
+    // After clone actions on new node
+    if (afterCb) {
+        afterCb(r);
+    }
+
+    return r;
 }
