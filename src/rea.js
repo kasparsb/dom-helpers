@@ -11,9 +11,9 @@ export default function(els) {
         return qa(els);
     }
 
-    // Make sure els is array. Idealy NodeList
-    if (!(typeof els == 'object' && typeof els.length != 'undefined')) {
-        els = [els];
+    // If single dom node
+    if (typeof els == 'object' && typeof els.tagName != 'undefined') {
+        return [els];
     }
 
     return els;
