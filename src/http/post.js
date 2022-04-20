@@ -1,16 +1,7 @@
-import urlParams from './urlParams';
+import jsonOrText from './jsonOrText';
+import request from './request';
 
 export default function(url, data) {
-    if (typeof data == 'undefined') {
-        data = {}
-    }
-
-    fetch(url, {
-        headers: {
-            'X-Requested-With': 'XMLHttpRequest'
-        },
-        method: 'POST',
-        body: urlParams(data)
-    })
-        .then(response => response.json())
+    return request('POST', url, data)
+        .then(jsonOrText)
 }

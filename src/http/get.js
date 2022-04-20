@@ -1,12 +1,7 @@
-import urlParams from './urlParams';
+import jsonOrText from './jsonOrText';
+import request from './request';
 
 export default function(url, data) {
-    let q = '';
-    if (typeof data != 'undefined') {
-        q = urlParams(data).toString()
-    }
-
-    fetch(url+(q ? '?'+q : ''))
-        .then(response => response.text())
-        .then(response => console.log(response))
+    return request('GET', url, data)
+        .then(jsonOrText)
 }
