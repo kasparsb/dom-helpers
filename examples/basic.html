@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+    <title>Dom Helpers</title>
+    <style>
+        .app {
+            max-width: 700px;
+            margin: 120px auto 0;
+        }
+        button {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .div1 {
+            margin-top: 40px;
+            padding: 40px;
+            background: red;
+        }
+        .div2 {
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app">
+        <div class="c">
+            <h2>Content from html</h2>
+        </div>
+    </div>
+
+    <div class="div1">
+        <button name="toggle">Toggle class</button>
+        <button name="toggleadd">Toggle add class</button>
+        <button name="toggleremove">Toggle remove class</button>
+    </div>
+
+    <div class="div1">Other 2 div1</div>
+    <div class="div1 div2">Other 3 div1</div>
+    <div class="div1">Other 4 div1</div>
+    <div class="div1 div2">Other 5 div1</div>
+
+    <ul>
+        <li class="li0">0</li>
+        <li class="li1">1</li>
+        <li class="li2">2</li>
+        <li class="li3">3</li>
+        <li class="li4">4</li>
+        <li class="li5">5</li>
+        <li class="li6">6</li>
+    </ul>
+    <table class="table" border="1">
+        <tr>
+            <td>1.1</td>
+            <td>1.2</td>
+        </tr>
+        <tr>
+            <td>2.1</td>
+            <td>2.2</td>
+        </tr>
+        <tr>
+            <td>3.1</td>
+            <td class="find-parent">3.2</td>
+        </tr>
+    </table>
+    <button name="findindex">Find index</button>
+
+    <div class="div-style">Add or get style 1</div>
+    <div class="div-style">Add or get style 2</div>
+    <button name="addstyle">Add style</button>
+    <button name="getstyle">Get style</button>
+    <button name="getwindowdimensions">Get window dimensions</button>
+    <button name="getwindowscrolltop">Get window scroll top</button>
+    <button name="setwindowscrolltop">Set window scroll top</button>
+
+    <button name="findparent">Find parent</button>
+
+    <button name="append">Append to .app and return</button>
+    <button name="appendarr">Append arr to .app and return</button>
+
+    <select name="sel">
+        <option>first</option>
+        <option value="3">value 3</option>
+        <option value="4">value 4</option>
+        <option value="asd">value asd</option>
+        <option value="dd">value selected</option>
+    </select>
+    <button name="selectvalue">Show select value</button>
+    <button name="findselectoption-asd">Find select option asd</button>
+    <button name="findselectoption-selected">Find select option selected</button>
+
+    <div class="prepend" style="border:1px solid gray"></div>
+
+    <div class="after" style="border:1px solid blue">
+        <div class="first">element first</div>
+        <div class="last">element last</div>
+    </div>
+
+    <button name="prependone">Prepend one</button>
+    <button name="prependarr">Prepend array</button>
+
+    <button name="replace-node">Replace with node</button>
+    <button name="replace-text">Replace with text</button>
+
+    <button name="clone">Clone</button>
+    <button name="insertbefore">Insert before</button>
+    <button name="insertafter">Insert after</button>
+
+    <div>
+        <h2>Next sibling</h2>
+        <button name="next">next</button>
+        Text Node will be skipped
+        <!-- comment node will be skipped -->
+        <h1>h4 element</h4>
+    </div>
+
+    <script src="./build/basic.min.js"></script>
+</body>
+</html>
