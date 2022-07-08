@@ -33,6 +33,10 @@ export default function(a1, a2, a3) {
         }
     }
 
+    if (!el) {
+        return newContent;
+    }
+
     el.innerHTML = '';
     return append(el, newContent);
 }
