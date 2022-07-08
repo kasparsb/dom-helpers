@@ -14,7 +14,8 @@ export default function(el, newEl) {
         }
 
         el.parentNode.replaceChild(newEl, el);
-
-        return newEl;
     }
+
+    // Vienmēr atgriežam jauno el, ja arī padotais el non existing
+    return newEl;
 }
