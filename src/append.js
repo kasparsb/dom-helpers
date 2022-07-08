@@ -1,5 +1,5 @@
 import re from './re';
-import isArray from './isArray';
+import isArrayLike from './isArrayLike';
 import isEmpty from './isEmpty';
 import isTextContent from './isTextContent';
 
@@ -11,10 +11,16 @@ function append(el, childs) {
     // Resolve element
     el = re(el);
 
-    let items = !isArray(childs) ? [childs] : childs;
+    /**
+     * Array vai NodeList
+     *
+     * form elementam ir .length
+     * Tāpēc, ja skatās pēc iterator, tad form būs kā array
+     */
+    let items = isArrayLike(childs) ? childs : [childs];
     for (let i = 0; i < items.length; i++) {
         let item = items[i];
-        if (isArray(item)) {
+        if (isArrayLike(item)) {
             append(el, item);
         }
         else {
