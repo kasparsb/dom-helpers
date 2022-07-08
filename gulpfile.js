@@ -1,8 +1,10 @@
 var gulp = require('gulp');
+var rename = require('gulp-rename');
 var watch = require('gulp-watch');
 var browserify = require('browserify');
 var watchify = require('watchify');
 var source = require('vinyl-source-stream')
+var less = require('gulp-less');
 var uglify = require('gulp-uglify');
 var buffer = require('vinyl-buffer');
 
@@ -58,7 +60,13 @@ function bundleJs(browserify, compress, firstRun) {
      * pretējā gadījumā ar katru watchify update eventu transform paliek lēnāks
      */
     if (firstRun) {
-        s = s.transform('babelify', {presets: ['env']})
+        s = s.transform(
+            'babelify', {
+                presets: [
+                    '@babel/env'
+                ]
+            }
+        )
     }
 
     s = s
@@ -74,16 +82,18 @@ function bundleJs(browserify, compress, firstRun) {
     s.pipe(gulp.dest(files.dest));
 }
 
-gulp.task('js', function(){
+function js(cb){
     bundleJs(getBrowserify(files.js));
-});
 
-gulp.task('watchjs', function(){
+    cb();
+};
+
+function watchjs(cb){
 
     var w = watchify(
         getBrowserify(files.js, false)
     );
-    
+
     var first = true;
     w.on('update', function(){
         // bundle without compression for faster response
@@ -95,8 +105,9 @@ gulp.task('watchjs', function(){
     });
 
     w.bundle().on('data', function() {});
-});
 
+    cb();
+};
 
-gulp.task('default', ['watchjs']);
-gulp.task('dist', ['js']);
+exports.default = gulp.series(watchjs);
+exports.dist = gulp.series(js);

@@ -42,6 +42,9 @@ import change from './event/change';
 import changep from './event/changep';
 import target from './event/target';
 
+import get from './http/get';
+import post from './http/post';
+
 export {
     getOuterDimensions,
     getWindowDimensions,
@@ -84,7 +87,10 @@ export {
     re,
     rea,
     mn,
-    jsx
+    jsx,
+
+    get,
+    post
 }
 
 export default {
@@ -129,5 +135,8 @@ export default {
     re,
     rea,
     mn,
-    jsx
+    jsx,
+
+    get,
+    post
 }
