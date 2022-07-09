@@ -23,6 +23,7 @@ import prepend from './prepend';
 import insertBefore from './insertBefore';
 import insertAfter from './insertAfter';
 import clone from './clone';
+import wrap from './wrap';
 import value from './value';
 import findSelectOption from './findSelectOption';
 import qa from './qa';
@@ -72,6 +73,7 @@ export {
     insertBefore,
     insertAfter,
     clone,
+    wrap,
     value,
     findSelectOption,
     off,
@@ -121,6 +123,7 @@ export default {
     insertBefore,
     insertAfter,
     clone,
+    wrap,
     value,
     findSelectOption,
     off,
