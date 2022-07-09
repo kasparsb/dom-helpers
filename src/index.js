@@ -25,6 +25,7 @@ import insertAfter from './insertAfter';
 import clone from './clone';
 import wrap from './wrap';
 import value from './value';
+import form from './form';
 import findSelectOption from './findSelectOption';
 import qa from './qa';
 import q from './q';
@@ -75,6 +76,7 @@ export {
     clone,
     wrap,
     value,
+    form,
     findSelectOption,
     off,
     onp,
@@ -125,6 +127,7 @@ export default {
     clone,
     wrap,
     value,
+    form,
     findSelectOption,
     off,
     onp,
