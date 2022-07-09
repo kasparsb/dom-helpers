@@ -1,11 +1,13 @@
 import getOuterDimensions from './getOuterDimensions';
 import getWindowDimensions from './getWindowDimensions';
 import getWindowScrollTop from './getWindowScrollTop';
+import getWindowScrollLeft from './getWindowScrollLeft';
 import setWindowScrollTop from './setWindowScrollTop';
 import replaceContent from './replaceContent';
 import replace from './replace';
 import setAttributes from './setAttributes';
 import getDimensions from './getDimensions';
+import isInViewport from './isInViewport';
 import removeClass from './removeClass';
 import getOffset from './getOffset';
 import nodeIndex from './nodeIndex';
@@ -52,11 +54,13 @@ export {
     getOuterDimensions,
     getWindowDimensions,
     getWindowScrollTop,
+    getWindowScrollLeft,
     setWindowScrollTop,
     replaceContent,
     replace,
     setAttributes,
     getDimensions,
+    isInViewport,
     removeClass,
     getOffset,
     nodeIndex,
@@ -103,11 +107,13 @@ export default {
     getOuterDimensions,
     getWindowDimensions,
     getWindowScrollTop,
+    getWindowScrollLeft,
     setWindowScrollTop,
     replaceContent,
     replace,
     setAttributes,
     getDimensions,
+    isInViewport,
     removeClass,
     getOffset,
     nodeIndex,
