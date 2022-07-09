@@ -80,6 +80,13 @@
 
     <button name="append">Append to .app and return</button>
     <button name="appendarr">Append arr to .app and return</button>
+    <button name="appendnodelist">Append node list to .app and return</button>
+    <div class="nodelist">
+        <p class="1">1</p>
+        <p class="2">2</p>
+        <p class="3">3</p>
+    </div>
+
 
     <select name="sel">
         <option>first</option>
@@ -115,6 +122,61 @@
         Text Node will be skipped
         <!-- comment node will be skipped -->
         <h1>h4 element</h4>
+    </div>
+
+    <button name="replacecontent">Replace content</button>
+    <div class="replacecontent">
+        Content to be replaced
+    </div>
+
+    <button name="value">Value</button>
+    <div class="value">
+        <form>
+            <div>
+                <input name="name" value="asdasdasd" />
+            </div>
+            <div>
+                <select>
+                    <option value=""></option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+            <div>
+                <input type="checkbox" value="chbvalue" />
+            </div>
+        </form>
+    </div>
+
+    <button name="form">Form</button>
+    <form class="form">
+        <div>
+            <input type="text" name="name" />
+        </div>
+        <div>
+            <select name="age">
+                <option value=""></option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </div>
+        <div>
+            <input type="checkbox" name="newsletter" value="chbvalue" />
+        </div>
+        <fieldset>
+            <input type="text" name="f1" value="fv1" /><br />
+            <input type="number" name="f2" value="2" /><br />
+            <input type="date" name="f3" value="" />
+        </fieldset>
+    </form>
+
+    <button name="wrap">Wrap</button>
+    <div class="wrap">
+        <p>Wont be wraped</p>
+        <p class="p">This Content will be wraped in red border div</p>
+        <p>Wont be either wraped</p>
     </div>
 
     <script src="./build/basic.min.js"></script>

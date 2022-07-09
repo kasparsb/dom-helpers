@@ -26,6 +26,9 @@ import clone from '../src/clone';
 import insertBefore from '../src/insertBefore';
 import insertAfter from '../src/insertAfter';
 import next from '../src/next';
+import value from '../src/value';
+import form from '../src/form';
+import wrap from '../src/wrap';
 
 let renderUncompleted = createRenderer(function(todos){
     if (!todos || todos.length == 0) {
@@ -75,7 +78,8 @@ replaceContent('.c', (
         {renderCompleted()}
         <div class="add-todo" style={{marginTop:'16px'}}>
             <form method="post">
-                <input type="text" /><button type="submit">Add</button>
+                <input type="text" />
+                <button type="submit">Add</button>
             </form>
         </div>
     </div>
@@ -165,6 +169,9 @@ clickp('[name=appendarr]', ev => {
         <div style={{padding:'20px',background:'red',color:'#fff'}}>This is 2</div>
     ]))
 })
+clickp('[name=appendnodelist]', ev => {
+    console.log(append('.app', qa('.nodelist p')))
+})
 
 clickp('[name=selectvalue]', ev => {
     console.log(q('[name=sel]').value)
@@ -229,7 +236,30 @@ clickp('[name=insertafter]', ev => {
 })
 
 clickp('[name=next]', (ev, el) => {
-
     console.log('Next node is');
     console.log(next(el));
+})
+
+clickp('[name=replacecontent]', ev => {
+    console.log(replaceContent('.replacecontent', <div>new content</div>));
+})
+
+clickp('[name=value]', ev => {
+    // Field pēc querySelector
+    console.log(value('.value input'));
+    console.log(value(q('.value input')));
+
+    // Field pēc form field name
+    console.log(value('.value form', 'name'));
+    console.log(value(q('.value form'), 'name'));
+})
+
+clickp('[name=form]', ev => {
+    console.log(form(q('form.form')));
+    console.log(form('form.form'));
+})
+
+clickp('[name=wrap]', ev => {
+    wrap(q('.wrap .p'), <div style={{border:'2px solid red'}}></div>)
+    //wrap(q('.wrap .p'), 'h1')
 })
