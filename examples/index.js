@@ -27,8 +27,11 @@ import insertBefore from '../src/insertBefore';
 import insertAfter from '../src/insertAfter';
 import next from '../src/next';
 import value from '../src/value';
-import form from '../src/form';
+import setValue from '../src/setValue';
+import getFormData from '../src/getFormData';
+import setFormData from '../src/setFormData';
 import wrap from '../src/wrap';
+
 
 let renderUncompleted = createRenderer(function(todos){
     if (!todos || todos.length == 0) {
@@ -252,14 +255,38 @@ clickp('[name=value]', ev => {
     // Field pēc form field name
     console.log(value('.value form', 'name'));
     console.log(value(q('.value form'), 'name'));
+
+    console.log(value('.value form', 'chb'));
+})
+clickp('[name=setvalue]', ev => {
+    // setValue('.value form', 'name', 'newvalue')
+    // setValue('.value form', 'sel', 2)
+    // setValue('.value form', 'chb', null)
+
+    setValue(q('.value form [name=chb]'), true);
+
+    //setValue('.value [name=name]', 'newvalue2')
 })
 
 clickp('[name=form]', ev => {
-    console.log(form(q('form.form')));
-    console.log(form('form.form'));
+    console.log(getFormData(q('form.form')));
+    console.log(getFormData('form.form'));
 })
 
 clickp('[name=wrap]', ev => {
     wrap(q('.wrap .p'), <div style={{border:'2px solid red'}}></div>)
     //wrap(q('.wrap .p'), 'h1')
+})
+
+clickp('[name=getformdata]', ev => {
+    console.log(getFormData('.form1'));
+})
+
+clickp('[name=setformdata]', ev => {
+    setFormData('.form1', {
+
+        chb2: true,
+        chbgroup: ['first', 'third'],
+        txtgroup: ['asd', 'asdasa', 'werwer', 'asdertert', 'sdfsdfsdf']
+    });
 })
