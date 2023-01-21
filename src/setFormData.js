@@ -1,10 +1,14 @@
 import re from './re';
-import value from './value';
+import setValue from './setValue';
 import isArray from './isArray';
+import clearFormData from './clearFormData';
 import isInputCheckable from './isInputCheckable';
 
 export default function(form, data) {
     form = re(form);
+
+    // Notīrām formas laukus
+    clearFormData(form);
 
     let formElements = [...form.elements];
 
@@ -19,21 +23,19 @@ export default function(form, data) {
         }
 
         if (isArray(data[name])) {
-            for (let i = 0; i < data[name].length; i++) {
-                if (i < elements.length) {
-                    if (isInputCheckable(elements[i])) {
-                        // vai elementa value ir masīvā
-                        elements[i].checked = data[name].includes(elements[i].value)
-                    }
-                    else {
-                        elements[i].value = data[name][i];
-                    }
+            for (let i = 0; i < elements.length; i++) {
+                if (isInputCheckable(elements[i])) {
+                    // vai elementa value ir masīvā
+                    setValue(elements[i], data[name].includes(elements[i].value));
+                }
+                else {
+                    setValue(elements[i], data[name][i]);
                 }
             }
         }
         else {
             if (elements.length > 0) {
-                elements[0].value = data[name]
+                setValue(elements[0], data[name])
             }
         }
     }
