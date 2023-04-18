@@ -2,8 +2,6 @@ import urlParams from './urlParams';
 
 export default function(method, url, data) {
 
-    console.log('request', method, url, data);
-
     let params = {
         headers: {
             'X-Requested-With': 'XMLHttpRequest'
@@ -13,9 +11,17 @@ export default function(method, url, data) {
 
     if (typeof data != 'undefined') {
         if (method.toUpperCase() == 'GET') {
-            let q = urlParams(data).toString();
-            console.log(q);
-            url = url + (q ? '?'+q : '')
+
+            // Vai url jau ir uzlikti search params ?
+            url = url.split('?');
+
+            let q = urlParams(
+                data,
+                // Padodam search params no url
+                new URLSearchParams(url.length > 1 ? url[1] : '')
+            ).toString();
+
+            url = url[0] + (q ? '?'+q : '')
         }
         else {
             params.body = urlParams(data)

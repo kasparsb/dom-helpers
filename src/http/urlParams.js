@@ -39,13 +39,21 @@ function qp(data, path, pairs) {
     return pairs;
 }
 
-export default function(data) {
+export default function(data, urlParams) {
     let pairs = qp(data);
 
-    let body = new URLSearchParams();
+    /**
+     * Padodam iekšā jau gatavu url search params objektu
+     * tas ir gadījumie, kad ir padots url ar jau uzliktiem
+     * get parametriem. Tādā gadījumā tos parametrus papildinām
+     * ar padotajiem data paramatriem
+     */
+    if (typeof urlParams == 'undefined') {
+        urlParams = new URLSearchParams();
+    }
     for (let i = 0; i < pairs.length; i++) {
-        body.append(formatUrlParamKey(pairs[i][0]), pairs[i][1])
+        urlParams.set(formatUrlParamKey(pairs[i][0]), pairs[i][1])
     }
 
-    return body;
+    return urlParams;
 }
