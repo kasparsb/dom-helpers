@@ -30,6 +30,7 @@ import value from '../src/value';
 import setValue from '../src/setValue';
 import getFormData from '../src/getFormData';
 import setFormData from '../src/setFormData';
+import clearFormData from '../src/clearFormData';
 import wrap from '../src/wrap';
 import isArray from '../src/isArray';
 
@@ -289,8 +290,16 @@ clickp('[name=getformdata]', ev => {
 clickp('[name=setformdata]', ev => {
     setFormData('.form1', {
 
-        chb2: true,
+        age: 2,
+        chb1: 'chbvalue',
+        chb2: false,
+        radio1: 'second',
+        radio2: 'werwer',
         chbgroup: ['first', 'third'],
         txtgroup: ['asd', 'asdasa', 'werwer', 'asdertert', 'sdfsdfsdf']
     });
+})
+
+clickp('[name=clearformdata]', () => {
+    clearFormData('.form1');
 })
