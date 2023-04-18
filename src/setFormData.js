@@ -1,3 +1,4 @@
+import qa from './qa';
 import re from './re';
 import setValue from './setValue';
 import isArray from './isArray';
@@ -10,7 +11,7 @@ export default function(form, data) {
     // Notīrām formas laukus
     clearFormData(form);
 
-    let formElements = [...form.elements];
+    let formElements = [...qa(form, 'input, select, textarea')];
 
     for (let name in data) {
 
@@ -35,7 +36,35 @@ export default function(form, data) {
         }
         else {
             if (elements.length > 0) {
-                setValue(elements[0], data[name])
+                // Vairāki checkable elementi ar vienādu vārdu
+                if (isInputCheckable(elements[0])) {
+                    // check to, kuram value ir tāds kā padots data[name]
+                    if (typeof data[name] != 'boolean') {
+                        let foundByValue = elements.find(el => el.value == data[name])
+                        if (foundByValue) {
+                            setValue(foundByValue, data[name]);
+                        }
+                    }
+                    else {
+                        // Check pirmo, kuram nav uzstādīts value
+                        let foundWithoutValue = elements.find(el => {
+                            if (!el.value) {
+                                return true;
+                            }
+                            if (el.value == 'on') {
+                                return true;
+                            }
+
+                            return false;
+                        })
+                        if (foundWithoutValue) {
+                            setValue(foundWithoutValue, data[name])
+                        }
+                    }
+                }
+                else {
+                    setValue(elements[0], data[name])
+                }
             }
         }
     }
