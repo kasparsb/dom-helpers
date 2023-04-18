@@ -1,5 +1,6 @@
 import q from './q';
 import append from './append';
+import isTextContent from './isTextContent';
 
 /**
  * replace element childs with new dom element
@@ -37,6 +38,13 @@ export default function(a1, a2, a3) {
         return newContent;
     }
 
-    el.innerHTML = '';
-    return append(el, newContent);
+    if (isTextContent(newContent)) {
+        el.innerHTML = newContent;
+        // return first child
+        return el.firstChild;
+    }
+    else {
+        el.innerHTML = '';
+        return append(el, newContent);
+    }
 }
