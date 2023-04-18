@@ -31,7 +31,7 @@ import setValue from '../src/setValue';
 import getFormData from '../src/getFormData';
 import setFormData from '../src/setFormData';
 import wrap from '../src/wrap';
-
+import isArray from '../src/isArray';
 
 let renderUncompleted = createRenderer(function(todos){
     if (!todos || todos.length == 0) {
@@ -279,7 +279,11 @@ clickp('[name=wrap]', ev => {
 })
 
 clickp('[name=getformdata]', ev => {
-    console.log(getFormData('.form1'));
+    let data = getFormData('.form1');
+    console.log(data)
+    for (let field in data) {
+        console.log(field+': '+(isArray(data[field]) ? data[field].join(', ') : data[field]));
+    }
 })
 
 clickp('[name=setformdata]', ev => {
