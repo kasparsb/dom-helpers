@@ -30,6 +30,7 @@ import value from './value';
 import setValue from './setValue';
 import getFormData from './getFormData';
 import setFormData from './setFormData';
+import submitForm from './submitForm';
 import findSelectOption from './findSelectOption';
 import qa from './qa';
 import q from './q';
@@ -85,6 +86,7 @@ export {
     setValue,
     getFormData,
     setFormData,
+    submitForm,
     findSelectOption,
     off,
     onp,
@@ -140,6 +142,7 @@ export default {
     setValue,
     getFormData,
     setFormData,
+    submitForm,
     findSelectOption,
     off,
     onp,
