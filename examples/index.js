@@ -250,6 +250,9 @@ clickp('[name=next]', (ev, el) => {
 clickp('[name=replacecontent]', ev => {
     console.log(replaceContent('.replacecontent', <div>new content</div>));
 })
+clickp('[name=replacecontenttext]', ev => {
+    console.log(replaceContent('.replacecontent', value('[name=replacecontenttext_text]')));
+})
 
 clickp('[name=value]', ev => {
     // Field pēc querySelector
