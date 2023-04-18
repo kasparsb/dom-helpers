@@ -1,51 +1,50 @@
+import qa from './qa';
 import re from './re';
 import value from './value';
 import isInputCheckable from './isInputCheckable';
 
+/**
+ * Visi form elementi, kas ir padotajā parent
+ * form.elements neizmantojam, jo tā ir neertība gadījumā,
+ * kad vajag savākt lauku vērtības no parastam div elementa
+ */
 export default function(form) {
     form = re(form);
 
-    let r = {};
-    for (let i = 0; i < form.length; i++) {
+    let fieldValues = {};
 
-        if (form.elements[i].nodeName == 'FIELDSET') {
-            continue;
-        }
+    [...qa(form, 'input, select, textarea')]
+        .filter(formEl => formEl.name ? true : false)
+        .forEach(formEl => {
+            let name = formEl.name;
 
-        if (!form.elements[i].name) {
-            continue;
-        }
-
-        let name = form.elements[i].name;
-
-        // Array field
-        if (name.substring(name.length-2) == '[]') {
-            name = name.substring(0, name.length-2);
-            if (typeof r[name] == 'undefined') {
-                r[name] = [];
+            /**
+             * Visus laukus pirmajā piegājienā uzskatām par
+             * array. Šeit vēl nepārbaudām vai name beidzas ar []
+             * Tas ir ar domu, ja ir vairāki lauki ar vienādiem name
+             */
+            if (typeof fieldValues[name] == 'undefined') {
+                fieldValues[name] = [];
             }
 
-            if (isInputCheckable(form.elements[i])) {
-                if (form.elements[i].checked) {
-                    r[name].push(value(form.elements[i]));
+            if (isInputCheckable(formEl)) {
+                if (formEl.checked) {
+                    fieldValues[name].push(value(formEl));
                 }
             }
             else {
-                r[name].push(value(form.elements[i]));
+                fieldValues[name].push(value(formEl));
             }
+        })
+
+    let r = {}
+    for (let name in fieldValues) {
+        if (name.substring(name.length-2) == '[]') {
+            r[name.substring(0, name.length-2)] = fieldValues[name];
         }
         else {
-            if (isInputCheckable(form.elements[i])) {
-                if (form.elements[i].checked) {
-                    r[name] = value(form.elements[i])
-                }
-                else {
-                    r[name] = false;
-                }
-            }
-            else {
-                r[name] = value(form.elements[i]);
-            }
+            // ņemam pirmo vērtību
+            r[name] = fieldValues[name].length > 0 ? fieldValues[name].at(0) : '';
         }
     }
 
