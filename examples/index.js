@@ -31,7 +31,10 @@ import setValue from '../src/setValue';
 import getFormData from '../src/getFormData';
 import setFormData from '../src/setFormData';
 import clearFormData from '../src/clearFormData';
+import submitForm from '../src/submitForm';
 import wrap from '../src/wrap';
+import get from '../src/http/get';
+import post from '../src/http/post';
 import isArray from '../src/isArray';
 
 let renderUncompleted = createRenderer(function(todos){
@@ -302,4 +305,27 @@ clickp('[name=setformdata]', ev => {
 
 clickp('[name=clearformdata]', () => {
     clearFormData('.form1');
+})
+
+clickp('[name=submitform]', () => {
+    submitForm('.form1', 'form.php', 'get')
+        .then(r => console.log(r))
+})
+
+clickp('[name=httpget]', () => {
+    let data = {
+        param1: 'asasd',
+        param2: 'dfgdfg',
+    }
+    get(value('[name=geturl]'), data)
+        .then(r => console.log(r))
+})
+
+clickp('[name=httppost]', () => {
+    let data = {
+        param1: 'asasd',
+        param2: 'dfgdfg',
+    }
+    post(value('[name=posturl]'), data)
+        .then(r => console.log(r))
 })

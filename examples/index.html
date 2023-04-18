@@ -162,7 +162,7 @@
     </div>
 
     <h1>Form</h1>
-    <div class="form1">
+    <form method="GET" action="form.php" class="form1">
         <div>
             <label>Name</label> <input type="text" name="name" value="my name" />
         </div>
@@ -241,7 +241,16 @@
         <button name="getformdata">Get form data</button>
         <button name="setformdata">Set form data</button>
         <button name="clearformdata">Clear form data</button>
-    </div>
+        <button name="submitform">Submit form</button>
+    </form>
+
+    <h1>Http get</h1>
+    <input type="text" name="geturl" value="form.php?a=sdf" />
+    <button name="httpget">httpget</button>
+
+    <h1>Http post</h1>
+    <input type="text" name="posturl" value="form.php?a=sdf" />
+    <button name="httppost">httppost</button>
 
 
     <script src="dist/example.min.js"></script>
