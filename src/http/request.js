@@ -1,6 +1,9 @@
 import urlParams from './urlParams';
 
 export default function(method, url, data) {
+
+    console.log('request', method, url, data);
+
     let params = {
         headers: {
             'X-Requested-With': 'XMLHttpRequest'
@@ -9,7 +12,7 @@ export default function(method, url, data) {
     }
 
     if (typeof data != 'undefined') {
-        if (method == 'GET') {
+        if (method.toUpperCase() == 'GET') {
             let q = urlParams(data).toString();
             console.log(q);
             url = url + (q ? '?'+q : '')
