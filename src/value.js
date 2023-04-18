@@ -1,4 +1,5 @@
 import re from './re';
+import isInputCheckable from './isInputCheckable';
 
 export default function(p1, p2) {
 
@@ -9,7 +10,7 @@ export default function(p1, p2) {
     if (typeof p2 != 'undefined') {
         let form = re(p1);
         if (form) {
-            field = form.elements[p2];
+            field = q(form, '[name='+p2+']');
         }
     }
     else {
@@ -20,8 +21,13 @@ export default function(p1, p2) {
         return '';
     }
 
-    if (field.type == 'checkbox' || field.type == 'radio') {
-        return field.checked ? field.value : '';
+    if (isInputCheckable(field)) {
+        if (field.value == 'on') {
+            return field.checked ? true : false;
+        }
+        else {
+            return field.checked ? field.value : '';
+        }
     }
 
     return field.value;
