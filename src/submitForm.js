@@ -3,9 +3,16 @@ import request from './http/request';
 import jsonOrText from './http/jsonOrText';
 import getFormData from './getFormData';
 
-export default function(form) {
+export default function(form, url, method) {
     form = re(form);
 
-    return request(form.method, form.action, getFormData(form))
+    if (typeof url == 'undefined') {
+        url = form.action;
+    }
+    if (typeof method == 'undefined') {
+        method = form.method;
+    }
+
+    return request(method, url, getFormData(form))
         .then(jsonOrText)
 }
