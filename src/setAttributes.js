@@ -18,8 +18,13 @@ export default function(el, attributes) {
             key = 'class';
         }
 
-        if (key.substr(0, 5) == 'data-') {
-            el.dataset[key.substr(5)] = value;
+        if (key.substring(0, 5) == 'data-') {
+            el.dataset[key.substring(5)] = value;
+        }
+        else if (key == 'data') {
+            for (let k in value) {
+                el.dataset[k] = value[k];
+            }
         }
         else if (key == 'style') {
             for (let k in value) {
