@@ -38,6 +38,7 @@ import re from './re';
 import rea from './rea';
 import mn from './mn';
 import jsx from './jsx';
+import ce from './ce';
 
 import off from './event/off';
 import onp from './event/onp';
@@ -104,6 +105,7 @@ export {
     rea,
     mn,
     jsx,
+    ce,
 
     get,
     post
@@ -160,6 +162,7 @@ export default {
     rea,
     mn,
     jsx,
+    ce,
 
     get,
     post
