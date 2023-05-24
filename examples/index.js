@@ -1,4 +1,5 @@
 import jsx from '../src/jsx';
+import ce from '../src/ce';
 import replaceContent from '../src/replaceContent';
 import click from '../src/event/click';
 import clickp from '../src/event/clickp';
@@ -331,4 +332,43 @@ clickp('[name=httppost]', () => {
     }
     post(value('[name=posturl]'), data)
         .then(r => console.log(r))
+})
+
+clickp('[name=ce]', () => {
+    let el = ce(
+        'div',
+        {
+            class: 'cl1',
+            style: {
+                'color': 'red'
+            },
+            'data-param1': 'value1',
+            'data-param2': 'value1',
+            data: {
+                param4: 'value4',
+                param5: 'value5',
+            }
+        },
+        'asdasd',
+        'dfgdfg',
+        ce(
+            'p',
+            {
+                style: {
+                    color: 'blue',
+                    fontWeight: 'bold'
+                }
+            },
+            'paragraph content',
+            ce(
+                'input',
+                {
+                    type: 'checkbox',
+                    checked: true
+                }
+            )
+        )
+    );
+
+    replaceContent('.ce-content', el);
 })
