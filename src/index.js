@@ -53,6 +53,7 @@ import target from './event/target';
 
 import get from './http/get';
 import post from './http/post';
+import postRaw from './http/postRaw';
 
 export {
     getOuterDimensions,
@@ -108,7 +109,8 @@ export {
     ce,
 
     get,
-    post
+    post,
+    postRaw
 }
 
 export default {
@@ -165,5 +167,6 @@ export default {
     ce,
 
     get,
-    post
+    post,
+    postRaw
 }

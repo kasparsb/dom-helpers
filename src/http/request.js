@@ -1,6 +1,11 @@
 import urlParams from './urlParams';
 
-export default function(method, url, data) {
+export default function(method, url, data, postDataAsIs) {
+
+    // Vai sūtīt post body tādu kāds padots
+    if (typeof postDataAsIs == 'undefined') {
+        postDataAsIs = false;
+    }
 
     let params = {
         headers: {
@@ -24,7 +29,12 @@ export default function(method, url, data) {
             url = url[0] + (q ? '?'+q : '')
         }
         else {
-            params.body = urlParams(data)
+            if (postDataAsIs) {
+                params.body = data;
+            }
+            else {
+                params.body = urlParams(data)
+            }
         }
     }
 
