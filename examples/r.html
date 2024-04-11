@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+</head>
+<body>
+    <div class="calculator" data-container data-ref="el">
+        <div>
+            <input type="text" name="exp" data-ref="exp" />
+        </div>
+        <div data-ref="result">
+
+        </div>
+        <button type="button" data-ref="calculate">Calculate</button>
+    </div>
+    <script src="../dist/dom-helpers.min.js"></script>
+    <script>
+        let r = webit.domHelpers.r;
+        let parent = webit.domHelpers.parent;
+        let clickp = webit.domHelpers.clickp;
+
+        let calc = r('.calculator');
+
+
+        clickp('.calculator button', (ev, el) => {
+            let c = r(parent(el, '[data-container]'));
+
+            c.result.innerHTML = c.exp.value;
+
+            console.log(c.el.innerHTML);
+        })
+    </script>
+</body>
+</html>
