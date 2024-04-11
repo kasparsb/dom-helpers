@@ -34,6 +34,7 @@ import submitForm from './submitForm';
 import findSelectOption from './findSelectOption';
 import qa from './qa';
 import q from './q';
+import r from './r';
 import re from './re';
 import rea from './rea';
 import mn from './mn';
@@ -102,6 +103,7 @@ export {
     target,
     qa,
     q,
+    r,
     re,
     rea,
     mn,
@@ -160,6 +162,7 @@ export default {
     target,
     qa,
     q,
+    r,
     re,
     rea,
     mn,
