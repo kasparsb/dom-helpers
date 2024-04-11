@@ -38,6 +38,37 @@ import get from '../src/http/get';
 import post from '../src/http/post';
 import isArray from '../src/isArray';
 
+import createRenderer2 from '../src/render/createRenderer';
+import createRenderer4 from '../src/render/createRenderer4';
+import {renderSingle} from '../src/render/render';
+
+let elrender = createRenderer2(
+
+    data => <div>{data}</div>,
+
+    (data, el) => {
+
+        el.innerHTML = data;
+
+        return el;
+    },
+    () => {
+
+    }
+)
+
+// append('body', renderSingle('asd', 'elcontent', elrender));
+// setTimeout(() => {
+//     renderSingle('asd', 'elcontent2', elrender)
+// }, 1000)
+// setTimeout(() => {
+//     renderSingle('asd', 'elcontent3', elrender)
+// }, 2000)
+// setTimeout(() => {
+//     renderSingle('asd', 'elcontent4', elrender)
+// }, 3000)
+
+
 let renderUncompleted = createRenderer(function(todos){
     if (!todos || todos.length == 0) {
         return (
@@ -371,4 +402,54 @@ clickp('[name=ce]', () => {
     );
 
     replaceContent('.ce-content', el);
+})
+
+
+
+function blockCreate(props) {
+    return <div>Block {props.value}</div>
+}
+function blockUpdate(el, refs, props) {
+    el.innerHTML = 'Block '+props.value
+}
+let Block = createRenderer4(blockCreate, blockUpdate);
+
+
+function brickCreate(props) {
+    return (
+        <section>
+            <h2>title garš</h2>
+            <div>
+                <div class="asdasd" ref="value">{props.value}</div>
+                <aside>sānu josla</aside>
+                <Block value={props.value+100} />
+            </div>
+        </section>
+    )
+}
+function brickUpdate(el, refs, props) {
+    //this.refs.value.innerHTML = args[0].value;
+    refs.value.innerHTML = props.value;
+}
+
+let Brick = createRenderer4(brickCreate, brickUpdate);
+
+
+
+
+
+let counter = 0;
+
+console.time('a');
+append('body', <Brick value={counter++} />);
+console.timeEnd('a');
+
+for (let f = 0; f < 10; f++) {
+    console.time('a');
+    Brick({value: counter++})
+    console.timeEnd('a');
+}
+
+clickp('[name=callrenderer]', () => {
+    Brick({value: counter++})
 })
