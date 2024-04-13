@@ -12,10 +12,10 @@ export default function(el) {
     return new Proxy(el, {
         get(target, prop, receiver) {
             // Pārbaudām vai pats el nav prasītais ref
-            if (el.dataset.ref == prop) {
+            if (el.dataset.r == prop) {
                 return el
             }
-            return q(el, `[data-ref=${prop}]`)
+            return q(el, `[data-r=${prop}]`)
         },
     });
 }
