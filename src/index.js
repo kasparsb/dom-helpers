@@ -31,6 +31,7 @@ import setValue from './setValue';
 import getFormData from './getFormData';
 import setFormData from './setFormData';
 import submitForm from './submitForm';
+import form from './form';
 import findSelectOption from './findSelectOption';
 import qa from './qa';
 import q from './q';
@@ -55,6 +56,7 @@ import target from './event/target';
 import get from './http/get';
 import post from './http/post';
 import postRaw from './http/postRaw';
+import urlParams from './http/urlParams';
 
 export {
     getOuterDimensions,
@@ -90,6 +92,7 @@ export {
     getFormData,
     setFormData,
     submitForm,
+    form,
     findSelectOption,
     off,
     onp,
@@ -112,7 +115,8 @@ export {
 
     get,
     post,
-    postRaw
+    postRaw,
+    urlParams
 }
 
 export default {
@@ -149,6 +153,7 @@ export default {
     getFormData,
     setFormData,
     submitForm,
+    form,
     findSelectOption,
     off,
     onp,
@@ -171,5 +176,6 @@ export default {
 
     get,
     post,
-    postRaw
+    postRaw,
+    urlParams
 }
