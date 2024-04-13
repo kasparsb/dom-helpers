@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+</head>
+<body>
+    <div class="person" data-container>
+        <div>
+            <label>Name</label>
+            <input type="text" name="name" value="Kaspars" />
+        </div>
+        <div>
+            <label>Are you human</label>
+            <input type="checkbox" name="is_human" />
+        </div>
+        <div>
+            <label>Age</label>
+            <select name="age">
+                <option value=""></option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </div>
+        <div>
+            <label>Interest 1</label>
+            <input type="text" name="interests[]" value="interest1" />
+        </div>
+        <div>
+            <label>Interest 3</label>
+            <input type="text" name="interests[]" />
+        </div>
+        <div>
+            <label>Interest 2</label>
+            <input type="text" name="interests[]" />
+        </div>
+        <div>
+            <label>Desc</label>
+            <textarea name="desc"></textarea>
+        </div>
+        <div>
+            <label>Hobby 1</label>
+            <input type="checkbox" name="hobby[]" value="hobby1" />
+        </div>
+        <div>
+            <label>Hobby 2</label>
+            <input type="checkbox" name="hobby[]" value="hobby2" />
+        </div>
+        <div>
+            <label>Hobby 3</label>
+            <input type="checkbox" name="hobby[]" value="hobby3" />
+        </div>
+        <div>
+            <label>Job 1</label>
+            <input type="checkbox" name="job[]" />
+        </div>
+        <div>
+            <label>Job 2</label>
+            <input type="checkbox" name="job[]" />
+        </div>
+        <div>
+            <label>Job 3</label>
+            <input type="checkbox" name="job[]" />
+        </div>
+        <button type="button" name="save">Save</button>
+        <button type="button" name="update">Update</button>
+    </div>
+    <script src="../dist/dom-helpers.min.js"></script>
+    <script>
+
+
+
+        let q = webit.domHelpers.q;
+        let qa = webit.domHelpers.qa;
+        let urlParams = webit.domHelpers.urlParams;
+        let form = webit.domHelpers.form;
+        let parent = webit.domHelpers.parent;
+        let clickp = webit.domHelpers.clickp;
+
+
+
+        clickp('[name=save]', (ev, el) => {
+
+            let personForm = form('.person');
+
+            console.log(personForm);
+            console.log(urlParams(personForm).toString());
+
+            console.log(personForm.name);
+            // console.log(personForm.is_human);
+            // console.log(personForm.age);
+            // console.log(personForm.interests);
+
+        })
+
+        clickp('[name=update]', (ev, el) => {
+
+            let personForm = form('.person');
+            personForm.name = 'name1';
+            personForm.is_human = true;
+            personForm.age = 2;
+            personForm.interests = [
+                'asdasd',
+                'dfgdfg',
+            ];
+            personForm.hobby = [
+                'hobby1',
+                'hobby3',
+            ];
+            personForm.job = [
+                true,
+                false,
+                true
+            ];
+
+            console.log(personForm);
+            // console.log(urlParams(personForm).toString());
+
+        })
+    </script>
+</body>
+</html>
