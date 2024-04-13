@@ -1,3 +1,4 @@
+import q from './q';
 import re from './re';
 
 export default function(p1, p2, p3) {
@@ -10,7 +11,9 @@ export default function(p1, p2, p3) {
     if (typeof p3 != 'undefined') {
         let form = re(p1);
         if (form) {
-            field = form.elements[p2];
+            //field = form.elements[p2];
+            // aizstājam ar q, jo padotais var nebūt form, bet jebkurš dom elements
+            field = q(form, `[name=${p2}]`);
         }
         value = p3;
     }
