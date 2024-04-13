@@ -13,29 +13,29 @@ export default function(form) {
 
     let fieldValues = {};
 
-    [...qa(form, 'input, select, textarea')]
-        .filter(formEl => formEl.name ? true : false)
-        .forEach(formEl => {
-            let name = formEl.name;
+    let fields = qa(form, 'input[name], select[name], textarea[name]');
+    for (let i = 0; i < fields.length; i++) {
+        let formEl = fields[i];
+        let name = formEl.name;
 
-            /**
-             * Visus laukus pirmajā piegājienā uzskatām par
-             * array. Šeit vēl nepārbaudām vai name beidzas ar []
-             * Tas ir ar domu, ja ir vairāki lauki ar vienādiem name
-             */
-            if (typeof fieldValues[name] == 'undefined') {
-                fieldValues[name] = [];
-            }
+        /**
+         * Visus laukus pirmajā piegājienā uzskatām par
+         * array. Šeit vēl nepārbaudām vai name beidzas ar []
+         * Tas ir ar domu, ja ir vairāki lauki ar vienādiem name
+         */
+        if (typeof fieldValues[name] == 'undefined') {
+            fieldValues[name] = [];
+        }
 
-            if (isInputCheckable(formEl)) {
-                if (formEl.checked) {
-                    fieldValues[name].push(value(formEl));
-                }
-            }
-            else {
+        if (isInputCheckable(formEl)) {
+            if (formEl.checked) {
                 fieldValues[name].push(value(formEl));
             }
-        })
+        }
+        else {
+            fieldValues[name].push(value(formEl));
+        }
+    }
 
     let r = {}
     for (let name in fieldValues) {
