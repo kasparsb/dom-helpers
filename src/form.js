@@ -38,6 +38,9 @@ export default function(formEl) {
             }
 
             obj[fieldName] = value;
+
+            // paziņo, ka ir ok
+            return true;
         }
     });
 }
