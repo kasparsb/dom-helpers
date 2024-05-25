@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+</head>
+<body>
+    <input type="file" />
+    <script src="../dist/dom-helpers.min.js"></script>
+    <script>
+        let change = webit.domHelpers.change;
+        let upload = webit.domHelpers.upload;
+
+        change('[type=file]', (ev, el) => {
+
+            var file = el.files[0];
+
+            upload('upload.php', file, {
+                filename: file.name
+            }, function(progress){
+                console.log('progress: '+progress);
+            })
+                .then(function(response){
+                    console.log('SUCCESS');
+                    console.log(response);
+                })
+                .catch(function(errorMessage){
+                    console.log('ERROR');
+                    console.log(errorMessage);
+                })
+
+        })
+    </script>
+</body>
+</html>
