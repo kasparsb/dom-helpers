@@ -15,7 +15,24 @@ export default function(el) {
             if (el.dataset.r == prop) {
                 return el
             }
-            return q(el, `[data-r=${prop}]`)
+
+            /**
+             * Relation elements overraido el native props
+             * Ja ir atrasts relation el, tad to atgriež
+             */
+            let relEl = q(el, `[data-r=${prop}]`);
+            if (relEl) {
+                return relEl;
+            }
+            else {
+                /**
+                 * Ja nav atrats relation el, tad atgriežam prop no el
+                 */
+                return el[prop];
+            }
         },
+        set(obj, prop, newValue) {
+            obj[prop] = newValue
+        }
     });
 }
