@@ -70,12 +70,10 @@ function upload(url, file, data, progressCb) {
         url = url[0] + (q ? '?'+q : '')
 
         request.open('POST', url);
-        request.setRequestHeader('Content-Type', file.type);
 
-        reader.onload = function(ev) {
-            request.send(ev.target.result);
-        }
-        reader.readAsBinaryString(file);
+        let fd = new FormData();
+        fd.append('file', file);
+        request.send(fd);
     });
 }
 
