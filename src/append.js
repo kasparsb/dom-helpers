@@ -2,6 +2,7 @@ import re from './re';
 import isArrayLike from './isArrayLike';
 import isEmpty from './isEmpty';
 import isTextContent from './isTextContent';
+import reProxy from './reProxy';
 
 /**
  * @param string|DOM node Selector or DOM node
@@ -19,7 +20,9 @@ function append(el, childs) {
      */
     let items = isArrayLike(childs) ? childs : [childs];
     for (let i = 0; i < items.length; i++) {
-        let item = items[i];
+
+        let item = reProxy(items[i]);
+
         if (isArrayLike(item)) {
             append(el, item);
         }
