@@ -11,25 +11,25 @@ export default function(el) {
 
     return new Proxy(el, {
         get(target, prop, receiver) {
-            // Pārbaudām vai pats el nav prasītais ref
-            if (el.dataset.r == prop) {
-                return el
-            }
 
             /**
-             * Relation elements overraido el native props
-             * Ja ir atrasts relation el, tad to atgriež
+             * Helper metodes, lai varētu ātri iegūt original el
+             * un noteikt vai elements ir proxy
              */
-            let relEl = q(el, `[data-r=${prop}]`);
-            if (relEl) {
-                return relEl;
+            if (prop == '__self__') {
+                return el;
             }
-            else {
-                /**
-                 * Ja nav atrats relation el, tad atgriežam prop no el
-                 */
-                return el[prop];
+            if (prop == '__isproxy__') {
+                return true;
             }
+
+            // Pārbaudām vai prasītais prop ir pašam objektam
+            if (prop in el) {
+                return el[prop]
+            }
+
+            // Pašās beigās meklējam pēc relation
+            return q(el, `[data-r=${prop}]`);
         },
         set(obj, prop, newValue) {
             obj[prop] = newValue
