@@ -7,6 +7,10 @@
 <body>
     <div class="person" data-container>
         <div>
+            <label>From time</label>
+            <input type="text" name="from_time" value="" />
+        </div>
+        <div>
             <label>Name</label>
             <input type="text" name="name" value="Kaspars" />
         </div>
@@ -83,7 +87,7 @@
 
         clickp('[name=save]', (ev, el) => {
 
-            let personForm = form('.person');
+            let personForm = form(parent(el, '[data-container]'));
 
             console.log(personForm);
             console.log(urlParams(personForm).toString());
@@ -97,25 +101,28 @@
 
         clickp('[name=update]', (ev, el) => {
 
-            let personForm = form('.person');
-            personForm.name = 'name1';
-            personForm.is_human = true;
-            personForm.age = 2;
-            personForm.interests = [
-                'asdasd',
-                'dfgdfg',
-            ];
-            personForm.hobby = [
-                'hobby1',
-                'hobby3',
-            ];
-            personForm.job = [
-                true,
-                false,
-                true
-            ];
+            let f = form(parent(el, '[data-container]'));
 
-            console.log(personForm);
+            f.from_time = '09:00';
+
+            // personForm.name = 'name1';
+            // personForm.is_human = true;
+            // personForm.age = 2;
+            // personForm.interests = [
+            //     'asdasd',
+            //     'dfgdfg',
+            // ];
+            // personForm.hobby = [
+            //     'hobby1',
+            //     'hobby3',
+            // ];
+            // personForm.job = [
+            //     true,
+            //     false,
+            //     true
+            // ];
+
+            // console.log(personForm);
             // console.log(urlParams(personForm).toString());
 
         })

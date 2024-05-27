@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
 </head>
 <body>
-    <div class="calculator" data-container data-r="el">
+    <div class="calculator" data-container data-r="el" data-initval="20">
         <div>
             <input type="text" name="exp" data-r="exp" />
         </div>
@@ -13,25 +13,90 @@
 
         </div>
         <button type="button" data-r="calculate">Calculate</button>
+        <button type="button" data-r="innerhtml">Set inerHTML</button>
+        <button type="button" data-r="isproxy">Is proxy</button>
+        <button type="button" data-r="appendproxyel">Append proxy el</button>
     </div>
+
+    <h4>calculator clone</h4>
+    <div class="calculator-clone">
+
+    </div>
+
     <script src="../dist/dom-helpers.min.js"></script>
     <script>
+        let q = webit.domHelpers.q;
         let r = webit.domHelpers.r;
+        let re = webit.domHelpers.re;
+        let append = webit.domHelpers.append;
         let parent = webit.domHelpers.parent;
         let clickp = webit.domHelpers.clickp;
 
         let calc = r('.calculator');
 
-        console.log(calc);
+        console.log(calc.target);
+
+        // console.log(calc);
+        // console.log(calc.exp);
+        // console.log(calc.dataset);
+        console.log(calc.dataset.initval);
+
+        //calc.dataset.initval = 30;
+
+        // console.log(calc.dataset.initval);
 
 
-        clickp('.calculator button', (ev, el) => {
+        clickp('.calculator [data-r="calculate"]', (ev, el) => {
 
             let c = r(parent(el, '[data-container]'));
 
             c.result.innerHTML = c.exp.value;
 
-            console.log(c.el.innerHTML);
+            c.exp.disabled = true;
+
+        })
+
+        clickp('.calculator [data-r="innerhtml"]', (ev, el) => {
+
+            let c = r(parent(el, '[data-container]'));
+
+            console.log(c.innerHTML);
+
+            calc.style.border = '2px solid red'
+        })
+
+        clickp('.calculator [data-r="isproxy"]', (ev, el) => {
+            let calc = r('.calculator');
+            let calcEl = q('.calculator');
+
+            console.log(calcEl);
+            console.log(calcEl['__isproxy__']);
+            console.log(calcEl['__self__']);
+
+            console.log(calc);
+            console.log(calc['__isproxy__']);
+            console.log(calc['__self__']);
+            console.log(re(calc));
+            console.log(r(calc));
+            console.log(r(calc).exp);
+
+            console.log(calc.exp);
+        })
+
+        clickp('.calculator [data-r="appendproxyel"]', (ev, el) => {
+            let calc = r('.calculator');
+
+
+
+
+            append('.calculator-clone', calc);
+            // append('.calculator-clone', [
+            //     'asdasdasdasd',
+            //     '34534345',
+            //     '(*&*()*&())',
+            // ]);
+
+            calc.result.innerHTML = 'cloned';
         })
     </script>
 </body>
