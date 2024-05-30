@@ -1,8 +1,9 @@
+import reProxy from './reProxy';
+
 /**
  * querySelectorAll
  */
 export default function(p1, p2) {
-
     let parentNode, querySelector;
 
     if (typeof p1 === 'string') {
@@ -10,7 +11,7 @@ export default function(p1, p2) {
         querySelector = p1;
     }
     else {
-        parentNode = p1;
+        parentNode = reProxy(p1);
         querySelector = p2;
     }
 
