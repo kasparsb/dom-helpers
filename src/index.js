@@ -38,6 +38,7 @@ import q from './q';
 import r from './r';
 import re from './re';
 import rea from './rea';
+import pe from './pe';
 import mn from './mn';
 import jsx from './jsx';
 import ce from './ce';
@@ -110,6 +111,7 @@ export {
     r,
     re,
     rea,
+    pe,
     mn,
     jsx,
     ce,
@@ -172,6 +174,7 @@ export default {
     r,
     re,
     rea,
+    pe,
     mn,
     jsx,
     ce,
