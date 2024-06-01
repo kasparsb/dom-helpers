@@ -16,6 +16,7 @@
         <button type="button" data-r="innerhtml">Set inerHTML</button>
         <button type="button" data-r="isproxy">Is proxy</button>
         <button type="button" data-r="appendproxyel">Append proxy el</button>
+        <button type="button" data-r="qel">q and qal</button>
     </div>
 
     <h4>calculator clone</h4>
@@ -26,25 +27,13 @@
     <script src="../dist/dom-helpers.min.js"></script>
     <script>
         let q = webit.domHelpers.q;
+        let qa = webit.domHelpers.qa;
         let r = webit.domHelpers.r;
         let re = webit.domHelpers.re;
         let append = webit.domHelpers.append;
         let parent = webit.domHelpers.parent;
         let clickp = webit.domHelpers.clickp;
-
         let calc = r('.calculator');
-
-        console.log(calc.target);
-
-        // console.log(calc);
-        // console.log(calc.exp);
-        // console.log(calc.dataset);
-        console.log(calc.dataset.initval);
-
-        //calc.dataset.initval = 30;
-
-        // console.log(calc.dataset.initval);
-
 
         clickp('.calculator [data-r="calculate"]', (ev, el) => {
 
@@ -97,6 +86,19 @@
             // ]);
 
             calc.result.innerHTML = 'cloned';
+        })
+
+        clickp('.calculator [data-r=qel]', (ev, el) => {
+            let calc = r('.calculator');
+
+            console.log('plain dom el');
+            console.log(q(q('.calculator'), '[type=text]'));
+            console.log(qa(q('.calculator'), '[type=text]'));
+
+            // select element with q
+            console.log('relation dom el');
+            console.log(q(calc, '[type=text]'));
+            console.log(qa(calc, '[type=text]'));
         })
     </script>
 </body>
