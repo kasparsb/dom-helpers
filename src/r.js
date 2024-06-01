@@ -5,10 +5,7 @@ import re from './re';
  * Give dom element. Child elements should have data atrribute ref
  * then returned Proxy object will return direct dom element by ref
  */
-export default function(el) {
-
-    el = re(el);
-
+function createProxy(el) {
     return new Proxy(el, {
         get(target, prop, receiver) {
 
@@ -28,11 +25,19 @@ export default function(el) {
                 return el[prop]
             }
 
-            // Pašās beigās meklējam pēc relation
-            return q(el, `[data-r=${prop}]`);
+            // Pašās beigās meklējam pēc relation un atgriežām kā r objektu
+            return createProxy(q(el, `[data-r=${prop}]`));
         },
         set(obj, prop, newValue) {
             obj[prop] = newValue
         }
     });
 }
+
+function r(el) {
+    el = re(el);
+    return createProxy(el)
+}
+
+
+export default r
