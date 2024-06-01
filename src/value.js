@@ -1,3 +1,4 @@
+import q from './q';
 import re from './re';
 import isInputCheckable from './isInputCheckable';
 

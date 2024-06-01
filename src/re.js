@@ -1,5 +1,5 @@
 import q from './q';
-import reProxy from './reProxy';
+import pe from './pe';
 
 /**
  * Resolve dom element.
@@ -13,5 +13,5 @@ export default function(el) {
         return q(el);
     }
 
-    return reProxy(el);
+    return pe(el);
 }

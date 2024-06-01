@@ -1,4 +1,5 @@
 import qa from './qa';
+import pe from './pe';
 
 /**
  * Resolve dom element.
@@ -13,8 +14,8 @@ export default function(els) {
 
     // If single dom node
     if (typeof els == 'object' && typeof els.tagName != 'undefined') {
-        return [els];
+        return [pe(els)];
     }
 
-    return els;
+    return [...els].map(el => pe(el));
 }

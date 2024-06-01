@@ -1,4 +1,4 @@
-import reProxy from './reProxy';
+import pe from './pe';
 
 /**
  * querySelector
@@ -12,7 +12,7 @@ export default function(p1, p2) {
         querySelector = p1;
     }
     else {
-        parentNode = reProxy(p1);
+        parentNode = pe(p1);
         querySelector = p2;
     }
 
