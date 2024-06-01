@@ -29,7 +29,9 @@ function createProxy(el) {
             return createProxy(q(el, `[data-r=${prop}]`));
         },
         set(obj, prop, newValue) {
-            obj[prop] = newValue
+            obj[prop] = newValue;
+
+            return true;
         }
     });
 }
