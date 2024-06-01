@@ -37,6 +37,7 @@ import submitForm from '../src/submitForm';
 import wrap from '../src/wrap';
 import get from '../src/http/get';
 import post from '../src/http/post';
+import del from '../src/http/del';
 import isArray from '../src/isArray';
 
 let renderUncompleted = createRenderer(function(todos){
@@ -346,6 +347,15 @@ clickp('[name=httppost]', () => {
         param2: 'dfgdfg',
     }
     post(value('[name=posturl]'), data)
+        .then(r => console.log(r))
+})
+
+clickp('[name=httpdelete]', () => {
+    let data = {
+        param1: 'asasd',
+        param2: 'dfgdfg',
+    }
+    del(value('[name=deleteurl]'), data)
         .then(r => console.log(r))
 })
 
