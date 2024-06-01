@@ -56,6 +56,7 @@ import target from './event/target';
 
 import get from './http/get';
 import post from './http/post';
+import del from './http/del';
 import postRaw from './http/postRaw';
 import upload from './http/upload';
 import urlParams from './http/urlParams';
@@ -118,6 +119,7 @@ export {
 
     get,
     post,
+    del,
     postRaw,
     upload,
     urlParams
@@ -181,6 +183,7 @@ export default {
 
     get,
     post,
+    del,
     postRaw,
     upload,
     urlParams
