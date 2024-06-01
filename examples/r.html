@@ -12,11 +12,23 @@
         <div data-r="result">
 
         </div>
+        <div data-r="nested">
+            <div data-r="child1">Nested child 1</div>
+            <div data-r="child2">
+                Nested child 2
+                <div style="margin-left: 20px" data-r="child1">Nested child 2, nested child 1</div>
+                <div style="margin-left: 20px"  data-r="child2">Nested child 2, nested child 2</div>
+                <div>Nested child 2, nested child 1</div>
+            </div>
+            <div data-r="child3">Nested child 3</div>
+        </div>
         <button type="button" data-r="calculate">Calculate</button>
         <button type="button" data-r="innerhtml">Set inerHTML</button>
         <button type="button" data-r="isproxy">Is proxy</button>
         <button type="button" data-r="appendproxyel">Append proxy el</button>
         <button type="button" data-r="qel">q and qal</button>
+        <button type="button" data-r="nested">Nested</button>
+        <button type="button" data-r="mn">Maybe create node</button>
     </div>
 
     <h4>calculator clone</h4>
@@ -30,6 +42,8 @@
         let qa = webit.domHelpers.qa;
         let r = webit.domHelpers.r;
         let re = webit.domHelpers.re;
+        let pe = webit.domHelpers.pe;
+        let mn = webit.domHelpers.mn;
         let append = webit.domHelpers.append;
         let parent = webit.domHelpers.parent;
         let clickp = webit.domHelpers.clickp;
@@ -100,6 +114,38 @@
             console.log(q(calc, '[type=text]'));
             console.log(qa(calc, '[type=text]'));
         })
+
+        clickp('.calculator [data-r=nested]', (ev, el) => {
+            let calc = r('.calculator');
+
+            console.log(calc.nested);
+            console.log(pe(calc.nested));
+            console.log(calc.nested.innerHTML);
+
+            console.log(calc.nested.child1);
+            console.log(pe(calc.nested.child1));
+            console.log(calc.nested.child1.innerHTML);
+
+            console.log(calc.nested.child2);
+            console.log(pe(calc.nested.child2));
+            console.log(calc.nested.child2.innerHTML);
+
+            console.log(calc.nested.child2.child1);
+            console.log(pe(calc.nested.child2.child1));
+            console.log(calc.nested.child2.child1.innerHTML);
+
+        });
+
+
+        clickp('.calculator [data-r=mn]', (ev, el) => {
+
+            let calc = r('.calculator');
+
+            console.log('asdasdasdasd', typeof 'asdasdasdasd');
+            console.log(mn('asdasdasdasd'), typeof mn('asdasdasdasd'));
+            console.log(mn(calc), typeof mn(calc));
+
+        });
     </script>
 </body>
 </html>

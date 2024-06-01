@@ -7,6 +7,7 @@ import submitp from '../src/event/submitp';
 import change from '../src/event/change';
 import q from '../src/q';
 import qa from '../src/qa';
+import r from '../src/r';
 import createRenderer from '../src/createRenderer';
 import append from '../src/append';
 import prepend from '../src/prepend';
@@ -160,10 +161,13 @@ clickp('[name=setwindowscrolltop]', ev => {
 
 
 clickp('[name=findparent]', ev => {
-    //console.log(parent('.find-parent'));
-    //console.log(parent('.find-parent', 'table'));
-    //console.log(parent('.find-parent', 'tr', 'table'));
-    //console.log(parent('.find-parent', '.not-existing'));
+    console.log(parent('.find-parent'));
+    console.log(parent('.find-parent', 'table'));
+    console.log(parent('.find-parent', 'tr', 'table'));
+})
+clickp('[name=findnotexistingparent]', ev => {
+    console.log(q('.find-parent'));
+    console.log(parent(q('.find-parent')));
     console.log(parent(q('.find-parent'), '.not-existing', 'table'));
 })
 
@@ -256,6 +260,7 @@ clickp('[name=replacecontenttext]', ev => {
 })
 
 clickp('[name=value]', ev => {
+
     // Field pēc querySelector
     console.log(value('.value input'));
     console.log(value(q('.value input')));
@@ -263,6 +268,9 @@ clickp('[name=value]', ev => {
     // Field pēc form field name
     console.log(value('.value form', 'name'));
     console.log(value(q('.value form'), 'name'));
+
+    console.log('value from relation element');
+    console.log(value(r('.value form'), 'name'));
 
     console.log(value('.value form', 'chb'));
 })
@@ -272,13 +280,20 @@ clickp('[name=setvalue]', ev => {
     // setValue('.value form', 'chb', null)
 
     setValue(q('.value form [name=chb]'), true);
+    console.log('set value on relation element');
+    setValue(r('.value form [name=chb]'), true);
 
     //setValue('.value [name=name]', 'newvalue2')
 })
 
-clickp('[name=form]', ev => {
-    console.log(getFormData(q('form.form')));
-    console.log(getFormData('form.form'));
+clickp('[name=getformdata22]', ev => {
+    console.log(q('.form1'));
+    console.log('from data from q');
+    console.log(getFormData(q('.form1')));
+    console.log('from data from query selector');
+    console.log(getFormData('.form1'));
+    console.log('from data from relation el');
+    console.log(getFormData(r('.form1')));
 })
 
 clickp('[name=wrap]', ev => {
