@@ -29,6 +29,7 @@
         <button type="button" data-r="qel">q and qal</button>
         <button type="button" data-r="nested">Nested</button>
         <button type="button" data-r="mn">Maybe create node</button>
+        <button type="button" data-r="fc">Function call on object</button>
     </div>
 
     <h4>calculator clone</h4>
@@ -144,6 +145,16 @@
             console.log('asdasdasdasd', typeof 'asdasdasdasd');
             console.log(mn('asdasdasdasd'), typeof mn('asdasdasdasd'));
             console.log(mn(calc), typeof mn(calc));
+
+        });
+
+        clickp('.calculator [data-r=fc]', (ev, el) => {
+
+            let calc = r('.calculator');
+
+
+            console.log(calc.hasChildNodes());
+
 
         });
     </script>
