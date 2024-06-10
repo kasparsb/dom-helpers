@@ -8,25 +8,30 @@ import re from './re';
 function createProxy(el) {
     return new Proxy(el, {
         get(target, prop, receiver) {
-
             /**
              * Helper metodes, lai varētu ātri iegūt original el
              * un noteikt vai elements ir proxy
              */
             if (prop == '__self__') {
-                return el;
+                return target;
             }
             if (prop == '__isproxy__') {
                 return true;
             }
 
             // Pārbaudām vai prasītais prop ir pašam objektam
-            if (prop in el) {
-                return el[prop]
+            if (prop in target) {
+
+                // Vai ir callable
+                if (typeof target[prop] === 'function') {
+                    return target[prop].bind(target);
+                }
+
+                return target[prop]
             }
 
             // Pašās beigās meklējam pēc relation un atgriežām kā r objektu
-            return createProxy(q(el, `[data-r=${prop}]`));
+            return createProxy(q(target, `[data-r=${prop}]`));
         },
         set(obj, prop, newValue) {
             obj[prop] = newValue;
