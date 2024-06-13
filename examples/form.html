@@ -70,6 +70,7 @@
         </div>
         <button type="button" name="save">Save</button>
         <button type="button" name="update">Update</button>
+        <button type="button" name="reset">Reset</button>
     </div>
     <script src="../dist/dom-helpers.min.js"></script>
     <script>
@@ -125,6 +126,11 @@
             // console.log(personForm);
             // console.log(urlParams(personForm).toString());
 
+        })
+
+        clickp('[name=reset]', (ev, el) => {
+            let f = form(parent(el, '[data-container]'));
+            f.reset();
         })
     </script>
 </body>

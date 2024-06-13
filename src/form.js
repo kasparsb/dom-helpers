@@ -1,4 +1,3 @@
-import q from './q';
 import re from './re';
 import getFormData from './getFormData';
 import isInputCheckable from './isInputCheckable';
