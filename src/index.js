@@ -30,6 +30,7 @@ import value from './value';
 import setValue from './setValue';
 import getFormData from './getFormData';
 import setFormData from './setFormData';
+import clearFormData from './clearFormData';
 import submitForm from './submitForm';
 import form from './form';
 import findSelectOption from './findSelectOption';
@@ -94,6 +95,7 @@ export {
     setValue,
     getFormData,
     setFormData,
+    clearFormData,
     submitForm,
     form,
     findSelectOption,
@@ -158,6 +160,7 @@ export default {
     setValue,
     getFormData,
     setFormData,
+    clearFormData,
     submitForm,
     form,
     findSelectOption,
