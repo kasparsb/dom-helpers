@@ -11,7 +11,7 @@ export default function(p1, p2) {
     if (typeof p2 != 'undefined') {
         let form = re(p1);
         if (form) {
-            field = q(form, '[name='+p2+']');
+            field = q(form, '[name="'+p2+'"]');
         }
     }
     else {
