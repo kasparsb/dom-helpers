@@ -35,6 +35,7 @@ import submitForm from './submitForm';
 import form from './form';
 import findSelectOption from './findSelectOption';
 import next from './next';
+import prev from './prev';
 import qa from './qa';
 import q from './q';
 import r from './r';
@@ -101,6 +102,7 @@ export {
     form,
     findSelectOption,
     next,
+    prev,
     off,
     onp,
     on,
@@ -167,6 +169,7 @@ export default {
     form,
     findSelectOption,
     next,
+    prev,
     off,
     onp,
     on,
