@@ -11,16 +11,16 @@ function next(el) {
 
     el = re(el);
 
-    if (!el.nextSibling) {
+    if (!el.nextElementSibling) {
         return null;
     }
 
     // Ja next node nav ELEMENT_NODE, tad skip un atgriežam nākošo
-    if (el.nextSibling.nodeType !== Node.ELEMENT_NODE) {
-        return next(el.nextSibling);
+    if (el.nextElementSibling.nodeType !== Node.ELEMENT_NODE) {
+        return next(el.nextElementSibling);
     }
 
-    return el.nextSibling;
+    return el.nextElementSibling;
 }
 
 export default next;
