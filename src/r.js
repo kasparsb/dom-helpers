@@ -6,6 +6,10 @@ import re from './re';
  * then returned Proxy object will return direct dom element by ref
  */
 function createProxy(el) {
+    if (!el) {
+        return null;
+    }
+
     return new Proxy(el, {
         get(target, prop, receiver) {
             /**
