@@ -45,6 +45,7 @@ import pe from './pe';
 import mn from './mn';
 import jsx from './jsx';
 import ce from './ce';
+import is from './is';
 
 import off from './event/off';
 import onp from './event/onp';
@@ -122,6 +123,7 @@ export {
     mn,
     jsx,
     ce,
+    is,
 
     get,
     post,
@@ -189,6 +191,7 @@ export default {
     mn,
     jsx,
     ce,
+    is,
 
     get,
     post,
