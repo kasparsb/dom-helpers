@@ -28,6 +28,7 @@ import clone from '../src/clone';
 import insertBefore from '../src/insertBefore';
 import insertAfter from '../src/insertAfter';
 import next from '../src/next';
+import prev from '../src/prev';
 import value from '../src/value';
 import setValue from '../src/setValue';
 import getFormData from '../src/getFormData';
@@ -396,4 +397,62 @@ clickp('[name=ce]', () => {
     );
 
     replaceContent('.ce-content', el);
+})
+
+clickp('[name=nextel]', () => {
+    let c = q('.nextel');
+    console.log(c);
+
+    let allItems = qa(c, 'div');
+    console.log(allItems);
+
+    let nextAny = next(allItems[0]);
+    console.log('next any', nextAny);
+
+    let nextItem = next(allItems[0], '.item');
+    console.log('next match .item', nextItem);
+
+    let nextItem2 = next(nextItem, '.item');
+    console.log('next match .item 2', nextItem2);
+
+    let nextItem3 = next(nextItem2, '.item');
+    console.log('next match .item 3', nextItem3);
+
+    let nextItem4 = next(nextItem3, '.item');
+    console.log('next match .item 4', nextItem4);
+
+    let nextAny4 = next(nextItem3);
+    console.log('next any 4', nextAny4);
+
+    let nextAny5 = next(nextAny4);
+    console.log('next any 5', nextAny5);
+})
+
+clickp('[name=prevel]', () => {
+    let c = q('.prevel');
+    console.log(c);
+
+    let allItems = qa(c, 'div');
+    console.log(allItems[allItems.length - 1]);
+
+    let prevAny = prev(allItems[allItems.length - 1]);
+    console.log('prev any', prevAny);
+
+    let prevItem = prev(allItems[allItems.length - 1], '.item');
+    console.log('prev match .item', prevItem);
+
+    let prevItem2 = prev(prevItem, '.item');
+    console.log('prev match .item 2', prevItem2);
+
+    let prevItem3 = prev(prevItem2, '.item');
+    console.log('prev match .item 3', prevItem3);
+
+    let prevItem4 = prev(prevItem3, '.item');
+    console.log('prev match .item 4', prevItem4);
+
+    let prevAny4 = prev(prevItem3);
+    console.log('prev any 4', prevAny4);
+
+    let prevAny5 = prev(prevAny4);
+    console.log('prev any 5', prevAny5);
 })
