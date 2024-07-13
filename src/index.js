@@ -57,6 +57,7 @@ import submitp from './event/submitp';
 import change from './event/change';
 import changep from './event/changep';
 import target from './event/target';
+import dispatchEvent from './event/dispatchEvent';
 
 import get from './http/get';
 import post from './http/post';
@@ -114,6 +115,7 @@ export {
     change,
     changep,
     target,
+    dispatchEvent,
     qa,
     q,
     r,
@@ -182,6 +184,7 @@ export default {
     change,
     changep,
     target,
+    dispatchEvent,
     qa,
     q,
     r,
