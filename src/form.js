@@ -1,4 +1,6 @@
 import re from './re';
+import qa from './qa';
+import q from './q';
 import getFormData from './getFormData';
 import isInputCheckable from './isInputCheckable';
 import setValue from './setValue';
@@ -18,6 +20,9 @@ import clearFormData from './clearFormData';
  * tad īso name var noradīt data-name=price
  */
 export default function(formEl, nameAttributeName) {
+    if (typeof nameAttributeName == 'undefined') {
+        nameAttributeName = 'name';
+    }
 
     formEl = re(formEl);
 
@@ -35,7 +40,7 @@ export default function(formEl, nameAttributeName) {
         },
         set(obj, fieldName, value) {
             if (isArray(value)) {
-                let elements = qa(formEl, `[name="${fieldName}[]"]`);
+                let elements = qa(formEl, `[${nameAttributeName}="${fieldName}[]"]`);
                 for (let i = 0; i < elements.length; i++) {
                     if (isInputCheckable(elements[i])) {
                         // vai elementa value ir masīvā
@@ -47,7 +52,8 @@ export default function(formEl, nameAttributeName) {
                 }
             }
             else {
-                setValue(formEl, fieldName, value);
+                let fieldEl = q(formEl, `[${nameAttributeName}="${fieldName}"]`);
+                setValue(fieldEl, value);
             }
 
             obj[fieldName] = value;
