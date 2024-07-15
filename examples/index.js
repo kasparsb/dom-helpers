@@ -35,6 +35,7 @@ import getFormData from '../src/getFormData';
 import setFormData from '../src/setFormData';
 import clearFormData from '../src/clearFormData';
 import submitForm from '../src/submitForm';
+import form from '../src/form';
 import wrap from '../src/wrap';
 import get from '../src/http/get';
 import post from '../src/http/post';
@@ -455,4 +456,20 @@ clickp('[name=prevel]', () => {
 
     let prevAny5 = prev(prevAny4);
     console.log('prev any 5', prevAny5);
+})
+
+
+clickp('[name=formvalues]', () => {
+    let form1 = form('.formvalues')
+    let form2 = form('.formvalues', 'data-name')
+    console.log(form1);
+    console.log(form2);
+})
+
+clickp('[name=formvaluesset]', () => {
+    let form1 = form('.formvalues')
+    let form2 = form('.formvalues', 'data-name')
+
+    form1.field1 = 'changed field1';
+    form2.field3 = 'changed data-field3';
 })
