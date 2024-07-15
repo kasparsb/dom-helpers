@@ -7,16 +7,27 @@ import isInputCheckable from './isInputCheckable';
  * Visi form elementi, kas ir padotajā parent
  * form.elements neizmantojam, jo tā ir neertība gadījumā,
  * kad vajag savākt lauku vērtības no parastam div elementa
+ *
+ * @nameAttributeName string iespēja norādīt custom name attribute
+ * default gadījumā tiek izmantots lauka name attribute, bet
+ * ar šo var norādīt citu atribūtu kurš būs name
+ * Piemēram, ja name ir sarežģīts name=products[2][price]
+ * tad īso name var noradīt data-name=price
  */
-export default function(form) {
+export default function(form, nameAttributeName) {
+    if (typeof nameAttributeName == 'undefined') {
+        nameAttributeName = 'name';
+    }
+
     form = re(form);
 
     let fieldValues = {};
 
-    let fields = qa(form, 'input[name], select[name], textarea[name]');
+    let fields = qa(form, 'input['+nameAttributeName+'], select['+nameAttributeName+'], textarea['+nameAttributeName+']');
     for (let i = 0; i < fields.length; i++) {
         let formEl = fields[i];
-        let name = formEl.name;
+        // šādi, lai darbotos arī data-* atribūti
+        let name = formEl.attributes.getNamedItem(nameAttributeName).value
 
         /**
          * Visus laukus pirmajā piegājienā uzskatām par

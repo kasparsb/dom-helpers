@@ -10,12 +10,18 @@ import clearFormData from './clearFormData';
  * ja set property ar lauka name, tad vērtība tiek ielikta laukā
  *
  * Nav obligāti padot formu. Jebkurš form lauks, kurš ir padotajā el
+ *
+ * @nameAttributeName string iespēja norādīt custom name attribute
+ * default gadījumā tiek izmantots lauka name attribute, bet
+ * ar šo var norādīt citu atribūtu kurš būs name
+ * Piemēram, ja name ir sarežģīts name=products[2][price]
+ * tad īso name var noradīt data-name=price
  */
-export default function(formEl) {
+export default function(formEl, nameAttributeName) {
 
     formEl = re(formEl);
 
-    return new Proxy(getFormData(formEl), {
+    return new Proxy(getFormData(formEl, nameAttributeName), {
         get(target, fieldName, receiver) {
 
             // Reset form fields
