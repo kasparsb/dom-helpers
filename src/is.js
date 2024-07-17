@@ -7,8 +7,10 @@ import re from './re';
 export default function(el, querySelector) {
     el = re(el);
 
-    if (el[matchesMethodName]) {
-        return el[matchesMethodName](querySelector);
+    if (el) {
+        if (el[matchesMethodName]) {
+            return el[matchesMethodName](querySelector);
+        }
     }
 
     return false;
