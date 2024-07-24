@@ -53,7 +53,15 @@ export default function(formEl, nameAttributeName) {
             }
             else {
                 let fieldEl = q(formEl, `[${nameAttributeName}="${fieldName}"]`);
-                setValue(fieldEl, value);
+                if (fieldEl.type == 'radio') {
+                    // Atlasām visus radio buttons ar norādīto name
+                    qa(formEl, `[${nameAttributeName}="${fieldName}"]`).forEach(radioFieldEl => {
+                        setValue(radioFieldEl, value);
+                    })
+                }
+                else {
+                    setValue(fieldEl, value);
+                }
             }
 
             obj[fieldName] = value;

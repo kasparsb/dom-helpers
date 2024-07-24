@@ -30,8 +30,11 @@ export default function(p1, p2, p3) {
         return '';
     }
 
-    if (field.type == 'checkbox' || field.type == 'radio') {
+    if (field.type == 'checkbox') {
         return field.checked = value ? true : false;
+    }
+    else if (field.type == 'radio') {
+        return field.checked = value == field.value
     }
     else {
         return field.value = value;
