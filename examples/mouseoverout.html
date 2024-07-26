@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+</head>
+<body style="padding:0;margin:0">
+    <div class="container" style="width:300px;height:280px;background:#efefef">
+        <div style="width:30px;height:30px;background:red;margin:80px">asd</div>
+        adsdfgsdfgs dfg
+        sdfgsdfgsdfgs fsdfgsdfg sdfgsdfg<br />
+        sdfgsdfgsdfgs fsdfgsdfg sdfgsdfg<br />
+        sdfgsdfgsdfgs fsdfgsdfg sdfgsdfg<br />
+    </div>
+
+    <div class="parent" style="margin-top:120px;padding:80px;border:2px solid green">
+        <div class="container2" style="width:300px;height:280px;background:#efefef">
+            <div style="width:30px;height:30px;background:red;margin:80px">asd</div>
+            adsdfgsdfgs dfg
+            sdfgsdfgsdfgs fsdfgsdfg sdfgsdfg<br />
+            sdfgsdfgsdfgs fsdfgsdfg sdfgsdfg<br />
+            sdfgsdfgsdfgs fsdfgsdfg sdfgsdfg<br />
+        </div>
+    </div>
+
+    <script src="../dist/dom-helpers.min.js"></script>
+    <script>
+
+
+
+        let onMouseOverOut = webit.domHelpers.onMouseOverOut;
+        let on = webit.domHelpers.on;
+        let q = webit.domHelpers.q;
+
+
+        onMouseOverOut('.container', {
+            mouseover(ev, el) {
+                console.log('mouseover');
+                console.log(ev);
+                console.log(el);
+            },
+            mouseout(ev, el) {
+                console.log('mouseout');
+                console.log(ev);
+                console.log(el);
+            }
+        })
+
+        onMouseOverOut(q('.parent'), '.container2', {
+            mouseover(ev, el) {
+                console.log('mouseover 2');
+            },
+            mouseout(ev, el) {
+                console.log('mouseout 2');
+            }
+        })
+
+
+
+    </script>
+</body>
+</html>
