@@ -56,6 +56,7 @@ import submit from './event/submit';
 import submitp from './event/submitp';
 import change from './event/change';
 import changep from './event/changep';
+import onMouseOverOut from './event/onMouseOverOut';
 import target from './event/target';
 import dispatchEvent from './event/dispatchEvent';
 
@@ -114,6 +115,7 @@ export {
     submitp,
     change,
     changep,
+    onMouseOverOut,
     target,
     dispatchEvent,
     qa,
@@ -183,6 +185,7 @@ export default {
     submitp,
     change,
     changep,
+    onMouseOverOut,
     target,
     dispatchEvent,
     qa,
