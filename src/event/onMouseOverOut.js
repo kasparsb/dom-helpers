@@ -30,7 +30,9 @@ export default function(p1, p2, p3) {
         clearTimeout(mt);
         mr = setTimeout(() => {
             if (!wasMouseOver) {
-                callbacks.mouseover(ev, el)
+                if (callbacks.mouseover) {
+                    callbacks.mouseover(ev, el)
+                }
             }
             wasMouseOver = true;
             wasMouseOut = false
@@ -40,7 +42,9 @@ export default function(p1, p2, p3) {
         clearTimeout(mr);
         mt = setTimeout(() => {
             if (!wasMouseOut) {
-                callbacks.mouseout(ev, el)
+                if (callbacks.mouseout) {
+                    callbacks.mouseout(ev, el)
+                }
             }
             wasMouseOut = true;
             wasMouseOver = false;
