@@ -55,7 +55,7 @@ export default function(form, nameAttributeName) {
         }
         else {
             // ņemam pirmo vērtību
-            r[name] = fieldValues[name].length > 0 ? fieldValues[name].at(0) : '';
+            r[name] = fieldValues[name].length > 0 ? fieldValues[name][0] : '';
         }
     }
 
