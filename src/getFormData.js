@@ -26,6 +26,12 @@ export default function(form, nameAttributeName) {
     let fields = qa(form, 'input['+nameAttributeName+'], select['+nameAttributeName+'], textarea['+nameAttributeName+']');
     for (let i = 0; i < fields.length; i++) {
         let formEl = fields[i];
+
+        // Skip disabled
+        if (formEl.disabled) {
+            continue;
+        }
+
         // šādi, lai darbotos arī data-* atribūti
         let name = formEl.attributes.getNamedItem(nameAttributeName).value
 
