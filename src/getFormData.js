@@ -23,7 +23,14 @@ export default function(form, nameAttributeName) {
 
     let fieldValues = {};
 
-    let fields = qa(form, 'input['+nameAttributeName+'], select['+nameAttributeName+'], textarea['+nameAttributeName+']');
+    let fields = qa(
+        form,
+         'input['+nameAttributeName+'], '
+        +'select['+nameAttributeName+'], '
+        +'textarea['+nameAttributeName+'], '
+        +'button['+nameAttributeName+']'
+    );
+
     for (let i = 0; i < fields.length; i++) {
         let formEl = fields[i];
 
