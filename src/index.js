@@ -65,6 +65,7 @@ import post from './http/post';
 import del from './http/del';
 import postRaw from './http/postRaw';
 import upload from './http/upload';
+import request from './http/request';
 import urlParams from './http/urlParams';
 
 export {
@@ -134,6 +135,7 @@ export {
     del,
     postRaw,
     upload,
+    request,
     urlParams
 }
 
@@ -204,5 +206,6 @@ export default {
     del,
     postRaw,
     upload,
+    request,
     urlParams
 }
