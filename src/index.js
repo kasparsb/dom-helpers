@@ -45,7 +45,9 @@ import pe from './pe';
 import mn from './mn';
 import jsx from './jsx';
 import ce from './ce';
+import htmlToDomEl from './htmlToDomEl';
 import is from './is';
+import isPromise from './isPromise';
 
 import off from './event/off';
 import onp from './event/onp';
@@ -128,7 +130,9 @@ export {
     mn,
     jsx,
     ce,
+    htmlToDomEl,
     is,
+    isPromise,
 
     get,
     post,
@@ -199,7 +203,9 @@ export default {
     mn,
     jsx,
     ce,
+    htmlToDomEl,
     is,
+    isPromise,
 
     get,
     post,
