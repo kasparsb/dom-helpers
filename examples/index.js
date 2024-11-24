@@ -218,6 +218,13 @@ clickp('[name=replace-text]', ev => {
     replace('.prepend', '<h1 class="prepend">Replaced with text</h1>')
 })
 
+clickp('[name=replace-with-request]', ev => {
+    replace(
+        '.prepend',
+        get('request-html.php')
+    )
+})
+
 clickp('[name=clone]', ev => {
     let newTable = clone('.table', el => addStyle(el, {margin: '200px 0'}));
     //let newTable = clone('.table');
@@ -471,5 +478,5 @@ clickp('[name=formvaluesset]', () => {
     let form2 = form('.formvalues', 'data-name')
 
     form1.field1 = 'changed field1';
-    form2.field3 = 'changed data-field3';
+    form2.dfield3 = 'changed data-field3';
 })
