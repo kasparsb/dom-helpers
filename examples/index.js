@@ -8,6 +8,7 @@ import change from '../src/event/change';
 import q from '../src/q';
 import qa from '../src/qa';
 import r from '../src/r';
+import qr from '../src/qr';
 import createRenderer from '../src/createRenderer';
 import append from '../src/append';
 import prepend from '../src/prepend';
@@ -479,4 +480,12 @@ clickp('[name=formvaluesset]', () => {
 
     form1.field1 = 'changed field1';
     form2.dfield3 = 'changed data-field3';
+})
+
+clickp('[name=qr-parent]', () => {
+    console.log(qr('.level-current', 'parent:level1'));
+})
+clickp('[name=qr-child]', () => {
+    console.log(qr('.level-current', 'level31'));
+    console.log(qr('.level-current', 'child:level31'));
 })
