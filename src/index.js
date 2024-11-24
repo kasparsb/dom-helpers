@@ -38,6 +38,7 @@ import next from './next';
 import prev from './prev';
 import qa from './qa';
 import q from './q';
+import qr from './qr';
 import r from './r';
 import re from './re';
 import rea from './rea';
@@ -123,6 +124,7 @@ export {
     dispatchEvent,
     qa,
     q,
+    qr,
     r,
     re,
     rea,
@@ -196,6 +198,7 @@ export default {
     dispatchEvent,
     qa,
     q,
+    qr,
     r,
     re,
     rea,
