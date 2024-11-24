@@ -1,19 +1,29 @@
 import re from './re';
+import isPromise from './isPromise';
+import htmlToDomEl from './htmlToDomEl';
 
+function _replace(oldEl, newEl) {
+    oldEl.parentNode.replaceChild(
+        // ja string, tad parsējam par Node
+        typeof newEl === 'string' ? htmlToDomEl(newEl) : newEl,
+        oldEl
+    );
+}
+
+/**
+ * Replace element with new element
+ * New element can be dom node or html
+ */
 export default function(el, newEl) {
     el = re(el);
 
     if (el && el.parentNode && newEl) {
-        // ja string, tad parsējam par Node
-
-        if (typeof newEl === 'string') {
-            // Šis veido DOM document
-            newEl = (new DOMParser()).parseFromString(newEl, 'text/html')
-            // Ņemam tikai pirmo child no body
-            newEl = newEl.body.firstChild;
+        if (isPromise(newEl)) {
+            newEl.then(newHtml => _replace(el, newHtml))
         }
-
-        el.parentNode.replaceChild(newEl, el);
+        else {
+            _replace(el, newEl)
+        }
     }
 
     // Vienmēr atgriežam jauno el, ja arī padotais el non existing
