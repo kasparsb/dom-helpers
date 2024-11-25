@@ -224,6 +224,9 @@ clickp('[name=replace-with-request]', ev => {
         '.prepend',
         get('request-html.php')
     )
+        .then(newEl => {
+            console.log('new el resolved', newEl);
+        })
 })
 
 clickp('[name=clone]', ev => {
