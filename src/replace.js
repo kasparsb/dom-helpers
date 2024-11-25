@@ -3,11 +3,14 @@ import isPromise from './isPromise';
 import htmlToDomEl from './htmlToDomEl';
 
 function _replace(oldEl, newEl) {
-    oldEl.parentNode.replaceChild(
+    if (typeof newEl === 'string') {
         // ja string, tad parsējam par Node
-        typeof newEl === 'string' ? htmlToDomEl(newEl) : newEl,
-        oldEl
-    );
+        newEl = htmlToDomEl(newEl)
+    }
+
+    oldEl.parentNode.replaceChild(newEl, oldEl);
+
+    return newEl;
 }
 
 /**
@@ -19,10 +22,15 @@ export default function(el, newEl) {
 
     if (el && el.parentNode && newEl) {
         if (isPromise(newEl)) {
-            newEl.then(newHtml => _replace(el, newHtml))
+            // Promise gadījumā atgriežam arī promise
+            return new Promise((resolve, reject) => {
+                newEl.then(newHtml => {
+                    resolve(_replace(el, newHtml))
+                })
+            })
         }
         else {
-            _replace(el, newEl)
+            return _replace(el, newEl)
         }
     }
 

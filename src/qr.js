@@ -9,8 +9,6 @@ import parent from './parent';
 export default function(el, querySelector) {
     el = re(el);
 
-    console.log(el);
-
     let p = querySelector.indexOf(':');
 
     // Kurā virzienā meklēt pēc querySelector (parent|child)
