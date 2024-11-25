@@ -486,9 +486,11 @@ clickp('[name=formvaluesset]', () => {
 })
 
 clickp('[name=qr-parent]', () => {
-    console.log(qr('.level-current', 'parent:level1'));
+    console.log(qr('.level-current', 'parent:.level1'));
 })
 clickp('[name=qr-child]', () => {
-    console.log(qr('.level-current', 'level31'));
-    console.log(qr('.level-current', 'child:level31'));
+    console.log(qr('.level-current', 'child:.level31'));
+})
+clickp('[name=qr-all]', () => {
+    console.log(qr('.level-current', '.level31'));
 })
