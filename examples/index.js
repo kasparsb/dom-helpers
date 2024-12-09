@@ -219,6 +219,19 @@ clickp('[name=replace-text]', ev => {
     replace('.prepend', '<h1 class="prepend">Replaced with text</h1>')
 })
 
+clickp('[name=replace-full-page-html]', ev => {
+    replace(
+        '.prepend',
+        '<!doctype html><html lang="en"><head><title>full page html</title></head>'
+        +'<body>'
+        +'asasd'
+        +'<p>Body line 1</p>'
+        +'<p>Body line 2</p>'
+        +'</body>'
+        +'</html>'
+    )
+})
+
 clickp('[name=replace-with-request]', ev => {
     replace(
         '.prepend',
