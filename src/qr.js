@@ -13,21 +13,26 @@ export default function(el, querySelector) {
 
     let p = querySelector.indexOf(':');
 
-    let query = querySelector;
     if (p >= 0) {
-        // Kurā virzienā meklēt pēc querySelector (parent|child)
-        let searchDirection = querySelector.substring(0, p);
 
-        query = querySelector.substring(p+1);
+        // Query daļa, bez direction daļas (īstais query)
+        let relativeQuery = querySelector.substring(p+1);
 
-        switch (searchDirection) {
+        /**
+         * Kurā virzienā meklēt pēc querySelector (parent|child)
+         *
+         * switch nostrādās tikai, ja direction ir parent vai child
+         * pretējā gadījumā nostrādās pēdējais return
+         * ar visu padoto querySelector
+         */
+        switch (querySelector.substring(0, p)) {
             case 'parent':
-                return parent(el, query);
+                return parent(el, relativeQuery);
             case 'child':
-                return q(el, query);
+                return q(el, relativeQuery);
         }
     }
 
     // Uz visu document
-    return q(query)
+    return q(querySelector)
 }
