@@ -70,6 +70,7 @@ import postRaw from './http/postRaw';
 import upload from './http/upload';
 import request from './http/request';
 import urlParams from './http/urlParams';
+import jsonOrText from './http/jsonOrText';
 
 export {
     getOuterDimensions,
@@ -142,7 +143,8 @@ export {
     postRaw,
     upload,
     request,
-    urlParams
+    urlParams,
+    jsonOrText
 }
 
 export default {
@@ -216,5 +218,6 @@ export default {
     postRaw,
     upload,
     request,
-    urlParams
+    urlParams,
+    jsonOrText
 }
