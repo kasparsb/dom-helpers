@@ -49,6 +49,7 @@ import ce from './ce';
 import htmlToDomEl from './htmlToDomEl';
 import is from './is';
 import isPromise from './isPromise';
+import ensureDomNode from './ensureDomNode';
 
 import off from './event/off';
 import onp from './event/onp';
@@ -136,6 +137,7 @@ export {
     htmlToDomEl,
     is,
     isPromise,
+    ensureDomNode,
 
     get,
     post,
@@ -211,6 +213,7 @@ export default {
     htmlToDomEl,
     is,
     isPromise,
+    ensureDomNode,
 
     get,
     post,
