@@ -13,8 +13,9 @@ export default function (html) {
      */
     let fragment = document.createDocumentFragment();
 
-    for (let i = 0; i < newEl.body.childNodes.length; i++) {
-        fragment.appendChild(newEl.body.childNodes[i])
+    // Tikko appendChildNode uz fragment, tā tas pazūd no newEl.body.childNodes un izmainās length
+    while (newEl.body.childNodes.length > 0) {
+        fragment.appendChild(newEl.body.childNodes[0]);
     }
 
     return fragment;
